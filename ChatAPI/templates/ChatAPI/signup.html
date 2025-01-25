@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+
+    {% block content %}
+
+    <div class="login-container">
+
+        <h2>{{ title }}</h2>
+
+        <div><a href="{% url 'login' %}"> Вернуться к авторизации </a></div>
+
+        <form method="post">
+            {% csrf_token %}
+            {% for f in form %}
+                <div>
+                <label for="{{ f.id_for_label }}">{{ f.label }}:</label>
+                {{ f }}
+
+                </div>
+            {% endfor %}
+            {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+            <p><button type="submit">Зарегестрироваться </button></p>
+        </form>
+
+    </div>
+    {% endblock %}
+
+</body>
+</html>

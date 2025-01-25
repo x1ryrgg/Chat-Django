@@ -1,0 +1,9 @@
+<div id="chat-window">
+       {% for message in serializer %}
+           <div class="message">
+               <div>{{ message.body }}</div>
+               <div>{{ message.sender.username }}</div>
+               <hr>
+           </div>
+       {% endfor %}
+   </div>

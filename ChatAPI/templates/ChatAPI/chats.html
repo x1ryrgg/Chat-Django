@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<h1><a href="{% url 'logout' %}"> Выйти из аккаунта</a></h1>
+<h2> {{ user.username }}</h2>
+<div>
+    {% for i in serializer %}
+        <a href="{% url 'chat' i.pk %}"> {{ i.group_name }}</a>
+    {% endfor %}
+</div>
+    <form method="get" action="{% url 'chats' %}" class="create-object-form">
+        {% for f in filter.form %}
+        <p class="form-group"><label class="form-control" for="{{ f.id_for_label }}">{{f.label}}:</label>{{ f }}</p>
+        {% if errors %}
+        <div class="form-error">{{ f.errors }}</div>
+        {% endif %}
+    {% endfor %}
+        <button class="btn btn-primary" type="submit"> Найти </button>
+    </form>
+
+    <div>
+        {% for i in user_serializer %}
+            <a href="{% url 'direct' i.pk %}"> {{ i.username }}</a>
+        {% endfor %}
+    </div>
+
+</body>
+</html>
