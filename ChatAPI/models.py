@@ -6,6 +6,7 @@ from django.utils.text import slugify
 
 
 class User(AbstractUser):
+    username = models.CharField(max_length=100, unique=True, db_index=True, verbose_name='Имя пользователя ')
     date_birth = models.DateField(blank=True, null=True, verbose_name="Дата рождения")
 
     def __str__(self):
@@ -14,6 +15,8 @@ class User(AbstractUser):
 
 class ChatGroup(models.Model):
     group_name = models.CharField(max_length=128, verbose_name="Название чата")
+    group_users = models.ManyToManyField(User, verbose_name="Пользователи чата")
+
 
     class Meta:
         verbose_name = "Название чата"
@@ -32,7 +35,7 @@ class GroupMessage(models.Model):
     class Meta:
         verbose_name = "Группа_сообщения"
         verbose_name_plural = "Группы_сообщения"
-        ordering = ["-date_sent"]
+        ordering = ["date_sent"]
 
     def __str__(self):
         return f"Название группы: {self.group.group_name} | Пользователь: {self.sender} | Сообщение: {self.body} '\n' "

@@ -22,12 +22,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)cpk!7)xrug)v17q^a817a%1_a5^ejf78cmsu+!f_qn+%be@_#'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -45,7 +49,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django_filters',
     'django_htmx',
-    'channels',
+    'channels', # для web-сокетов
+    "debug_toolbar",
     'django_extensions',
     'allauth',
     'allauth.account',
@@ -61,6 +66,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'allauth.account.middleware.AccountMiddleware',
 ]
 
@@ -84,6 +90,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Chat_Django.wsgi.application'
+
+ASGI_APPLICATION = 'Chat_Django.asgi.application'
 
 
 # Database

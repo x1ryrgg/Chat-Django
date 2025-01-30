@@ -1,9 +1,10 @@
-<div id="chat-window">
-       {% for message in serializer %}
-           <div class="message">
-               <div>{{ message.body }}</div>
-               <div>{{ message.sender.username }}</div>
-               <hr>
-           </div>
-       {% endfor %}
-   </div>
+<ul id="chat-messages">
+    {% for message in serializer %}
+        <li>
+            <div class="{% if message.sender.id == request.user.id %}user-message{% else %}other-message{% endif %}">
+                <strong>{{ message.sender.username }}</strong> ({{ message.sender.id }} vs {{ request.user.id }}):
+                {{ message.body }}
+            </div>
+        </li>
+    {% endfor %}
+</ul>

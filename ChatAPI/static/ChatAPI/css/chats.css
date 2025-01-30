@@ -1,0 +1,121 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #ffffff;
+}
+
+a {
+    text-decoration: none;
+    color: #64b5f6;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Навигация */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.navbar .brand {
+    margin-left: 20px;
+}
+
+.navbar .actions {
+    display: flex;
+    gap: 20px;
+    margin-right: 20px;
+}
+
+.navbar a {
+    color: #ffffff;
+}
+
+.navbar a:hover {
+    color: #64b5f6;
+}
+
+/* Форма поиска */
+.create-object-form {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+
+.create-object-form .form-group {
+    margin-bottom: 15px;
+}
+
+.create-object-form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.create-object-form input[type="text"], .create-object-form select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.create-object-form .btn {
+    padding: 10px 20px;
+    background-color: #64b5f6;
+    color: #121212;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.create-object-form .btn:hover {
+    background-color: #3179b7;
+}
+
+/* Чаты и пользователи */
+.chat-list, .user-list, .create-object-form {
+    margin-top: 20px;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.chat-item, .user-item {
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.chat-item a, .user-item a {
+    display: block;
+    color: #ffffff;
+}
+
+.chat-item a:hover, .user-item a:hover {
+    color: #64b5f6;
+}

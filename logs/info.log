@@ -10293,3 +10293,1288 @@ DETAIL:  Ошибочная строка содержит (128, lkjlkjljk, 2025-01-25 19:32:19.298688+0
 2025-01-25 22:39:58,860 INFO Watching for file changes with StatReloader
 2025-01-25 22:40:40,270 INFO User Ник: test3 | ID: 3 | Email: test3@mail.ru successfully registered
 2025-01-25 22:46:45,725 INFO Watching for file changes with StatReloader
+2025-01-26 10:36:17,007 INFO Watching for file changes with StatReloader
+2025-01-26 10:36:20,237 WARNING Not Found: /favicon.ico
+2025-01-26 15:02:08,852 INFO Watching for file changes with StatReloader
+2025-01-26 15:02:11,971 WARNING Not Found: /favicon.ico
+2025-01-26 15:02:12,595 ERROR Internal Server Error: /chat/3/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 143, in get
+    context = GroupChatView.get_group_context(chat_id)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 132, in get_group_context
+    query = GroupMessage.objects.get(group__id=chat_id)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\query.py", line 652, in get
+    raise self.model.MultipleObjectsReturned(
+    ...<5 lines>...
+    )
+ChatAPI.models.GroupMessage.MultipleObjectsReturned: get() returned more than one GroupMessage -- it returned 12!
+2025-01-26 15:02:55,486 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-26 15:02:56,126 INFO Watching for file changes with StatReloader
+2025-01-26 15:02:57,696 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:03:26,067 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:03:26,934 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:03:27,328 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:03:52,572 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-26 15:03:53,113 INFO Watching for file changes with StatReloader
+2025-01-26 15:03:53,927 ERROR Internal Server Error: /chat/3/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 144, in get
+    return render(request, 'chatAPI/chat_one.html', context)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'chat' with keyword arguments '{'chat_id': ''}' not found. 1 pattern(s) tried: ['chat/(?P<chat_id>[0-9]+)/\\Z']
+2025-01-26 15:04:11,165 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-26 15:04:11,698 INFO Watching for file changes with StatReloader
+2025-01-26 15:04:17,359 INFO D:\python\Chat_Django\ChatAPI\forms.py changed, reloading.
+2025-01-26 15:04:18,031 INFO Watching for file changes with StatReloader
+2025-01-26 15:04:19,121 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:04:29,887 INFO D:\python\Chat_Django\ChatAPI\forms.py changed, reloading.
+2025-01-26 15:04:30,517 INFO Watching for file changes with StatReloader
+2025-01-26 15:04:57,888 INFO D:\python\Chat_Django\ChatAPI\forms.py changed, reloading.
+2025-01-26 15:04:58,388 INFO Watching for file changes with StatReloader
+2025-01-26 15:06:09,578 INFO Watching for file changes with StatReloader
+2025-01-26 15:06:11,106 INFO D:\python\Chat_Django\ChatAPI\forms.py changed, reloading.
+2025-01-26 15:06:11,933 INFO Watching for file changes with StatReloader
+2025-01-26 15:06:12,768 WARNING Not Found: /favicon.ico
+2025-01-26 15:06:19,860 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:06:29,452 INFO Watching for file changes with StatReloader
+2025-01-26 15:06:33,890 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:08:02,997 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:08:21,813 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:08:23,195 WARNING Not Found: /ws/chat/4/
+2025-01-26 15:11:51,319 INFO Watching for file changes with StatReloader
+2025-01-26 15:11:54,776 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:13:16,338 INFO Watching for file changes with StatReloader
+2025-01-26 15:13:19,215 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:13:20,665 WARNING Not Found: /ws/chat/4/
+2025-01-26 15:13:54,859 INFO Watching for file changes with StatReloader
+2025-01-26 15:13:57,540 WARNING Not Found: /ws/chat/4/
+2025-01-26 15:13:58,875 ERROR Internal Server Error: /chat/4/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 160, in post
+    return render(request, 'chatAPI/chat_one.html', context)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'chat' with keyword arguments '{'chat_id': ''}' not found. 1 pattern(s) tried: ['chat/(?P<chat_id>[0-9]+)/\\Z']
+2025-01-26 15:13:59,982 ERROR Internal Server Error: /chat/4/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 160, in post
+    return render(request, 'chatAPI/chat_one.html', context)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'chat' with keyword arguments '{'chat_id': ''}' not found. 1 pattern(s) tried: ['chat/(?P<chat_id>[0-9]+)/\\Z']
+2025-01-26 15:14:01,226 ERROR Internal Server Error: /chat/4/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 160, in post
+    return render(request, 'chatAPI/chat_one.html', context)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'chat' with keyword arguments '{'chat_id': ''}' not found. 1 pattern(s) tried: ['chat/(?P<chat_id>[0-9]+)/\\Z']
+2025-01-26 15:14:01,300 ERROR Internal Server Error: /chat/4/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 160, in post
+    return render(request, 'chatAPI/chat_one.html', context)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'chat' with keyword arguments '{'chat_id': ''}' not found. 1 pattern(s) tried: ['chat/(?P<chat_id>[0-9]+)/\\Z']
+2025-01-26 15:14:01,434 ERROR Internal Server Error: /chat/4/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 160, in post
+    return render(request, 'chatAPI/chat_one.html', context)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'chat' with keyword arguments '{'chat_id': ''}' not found. 1 pattern(s) tried: ['chat/(?P<chat_id>[0-9]+)/\\Z']
+2025-01-26 15:14:45,440 INFO Watching for file changes with StatReloader
+2025-01-26 15:14:47,167 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-26 15:14:47,817 INFO Watching for file changes with StatReloader
+2025-01-26 15:14:48,715 WARNING Not Found: /ws/chat/4/
+2025-01-26 15:14:52,103 ERROR Internal Server Error: /chat/4/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 160, in post
+    return render(request, 'chatAPI/chat_one.html', context)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'chat' with keyword arguments '{'chat_id': ''}' not found. 1 pattern(s) tried: ['chat/(?P<chat_id>[0-9]+)/\\Z']
+2025-01-26 15:14:53,330 WARNING Not Found: /ws/chat/4/
+2025-01-26 15:15:24,656 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-26 15:15:25,203 INFO Watching for file changes with StatReloader
+2025-01-26 15:15:29,042 WARNING Not Found: /ws/chat/4/
+2025-01-26 15:17:09,328 INFO Watching for file changes with StatReloader
+2025-01-26 15:17:12,184 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:17:14,607 WARNING Not Found: /ws/chat/4/
+2025-01-26 15:18:01,411 INFO Watching for file changes with StatReloader
+2025-01-26 15:18:04,240 WARNING Not Found: /ws/chat/4/
+2025-01-26 15:20:58,201 WARNING Not Found: /ws/chat/4/
+2025-01-26 15:20:59,672 WARNING Not Found: /ws/chat/4/
+2025-01-26 15:21:01,033 WARNING Not Found: /ws/chat/4/
+2025-01-26 15:23:47,195 INFO Watching for file changes with StatReloader
+2025-01-26 15:24:21,770 INFO Watching for file changes with StatReloader
+2025-01-26 15:27:50,270 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-26 15:27:51,008 INFO Watching for file changes with StatReloader
+2025-01-26 15:27:54,092 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:28:02,778 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:28:07,459 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-26 15:28:08,118 INFO Watching for file changes with StatReloader
+2025-01-26 15:28:12,458 WARNING Not Found: /ws/chat/4/
+2025-01-26 15:28:15,177 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:28:20,278 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-26 15:28:20,910 INFO Watching for file changes with StatReloader
+2025-01-26 15:28:22,097 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:28:24,587 WARNING Not Found: /ws/chat/4/
+2025-01-26 15:28:25,818 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:28:36,634 INFO Watching for file changes with StatReloader
+2025-01-26 15:28:39,583 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:28:46,947 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:28:49,316 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:28:55,248 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-26 15:28:55,948 INFO Watching for file changes with StatReloader
+2025-01-26 15:28:58,585 INFO Watching for file changes with StatReloader
+2025-01-26 15:29:02,592 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:29:04,895 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:29:32,367 INFO Watching for file changes with StatReloader
+2025-01-26 15:29:35,702 WARNING Not Found: /ws/chat/3/
+2025-01-26 15:47:14,592 INFO Watching for file changes with StatReloader
+2025-01-28 11:47:55,426 INFO Watching for file changes with StatReloader
+2025-01-28 11:48:01,142 WARNING Not Found: /favicon.ico
+2025-01-28 11:48:05,719 WARNING Not Found: /ws/chat/3/
+2025-01-28 11:48:09,417 WARNING Not Found: /ws/chat/4/
+2025-01-28 11:49:09,464 INFO Watching for file changes with StatReloader
+2025-01-28 11:49:16,604 INFO Watching for file changes with StatReloader
+2025-01-28 11:54:14,228 INFO Watching for file changes with StatReloader
+2025-01-28 11:54:20,353 INFO D:\python\Chat_Django\ChatAPI\filters.py changed, reloading.
+2025-01-28 11:54:21,228 INFO Watching for file changes with StatReloader
+2025-01-28 11:54:54,573 INFO Watching for file changes with StatReloader
+2025-01-28 11:57:50,484 INFO Watching for file changes with StatReloader
+2025-01-28 11:58:16,128 INFO Watching for file changes with StatReloader
+2025-01-28 11:58:23,234 INFO Watching for file changes with StatReloader
+2025-01-28 11:58:49,210 INFO D:\python\Chat_Django\ChatAPI\filters.py changed, reloading.
+2025-01-28 11:58:50,237 INFO Watching for file changes with StatReloader
+2025-01-28 11:58:52,061 WARNING Not Found: /favicon.ico
+2025-01-28 12:09:27,310 INFO Watching for file changes with StatReloader
+2025-01-28 12:09:37,778 WARNING Not Found: /ws/chat/3/
+2025-01-28 12:11:00,988 WARNING Not Found: /ws/chat/3/
+2025-01-28 12:11:02,577 WARNING Not Found: /ws/chat/4/
+2025-01-28 12:12:15,219 WARNING Not Found: /ws/chat/4/
+2025-01-28 12:12:16,606 WARNING Not Found: /ws/chat/3/
+2025-01-28 12:13:14,606 WARNING Not Found: /ws/chat/3/
+2025-01-28 12:13:16,408 WARNING Not Found: /ws/chat/4/
+2025-01-28 12:39:39,543 INFO Watching for file changes with StatReloader
+2025-01-28 12:39:54,692 WARNING Not Found: /favicon.ico
+2025-01-28 13:07:21,867 INFO Watching for file changes with StatReloader
+2025-01-28 13:09:19,990 INFO D:\python\Chat_Django\ChatAPI\forms.py changed, reloading.
+2025-01-28 13:09:21,405 INFO Watching for file changes with StatReloader
+2025-01-28 13:10:37,242 INFO D:\python\Chat_Django\ChatAPI\forms.py changed, reloading.
+2025-01-28 13:10:38,229 INFO Watching for file changes with StatReloader
+2025-01-28 13:12:22,333 INFO D:\python\Chat_Django\ChatAPI\urls.py changed, reloading.
+2025-01-28 13:12:23,458 INFO Watching for file changes with StatReloader
+2025-01-28 13:29:06,567 INFO Watching for file changes with StatReloader
+2025-01-28 13:32:56,492 INFO Watching for file changes with StatReloader
+2025-01-28 13:33:43,183 INFO Watching for file changes with StatReloader
+2025-01-28 13:34:12,328 WARNING Not Found: /ws/chat/5/
+2025-01-28 13:36:01,681 WARNING Not Found: /ws/chat/6/
+2025-01-28 13:36:30,785 WARNING Not Found: /favicon.ico
+2025-01-28 13:36:59,102 WARNING Not Found: /favicon.ico
+2025-01-28 13:39:03,152 INFO D:\python\Chat_Django\ChatAPI\forms.py changed, reloading.
+2025-01-28 13:39:04,622 INFO Watching for file changes with StatReloader
+2025-01-28 13:51:10,922 INFO Watching for file changes with StatReloader
+2025-01-28 13:52:21,274 INFO Watching for file changes with StatReloader
+2025-01-28 13:52:38,286 WARNING Not Found: /ws/chat/7/
+2025-01-28 13:52:58,923 WARNING Not Found: /ws/chat/7/
+2025-01-28 14:59:07,853 INFO Watching for file changes with StatReloader
+2025-01-28 15:06:52,352 INFO Watching for file changes with StatReloader
+2025-01-28 16:15:34,895 WARNING Not Found: /ws/chat/8/
+2025-01-28 16:22:42,396 INFO Watching for file changes with StatReloader
+2025-01-28 16:23:03,125 WARNING Not Found: /ws/chat/8/
+2025-01-28 16:24:09,860 INFO Watching for file changes with StatReloader
+2025-01-28 16:25:58,508 INFO D:\python\Chat_Django\ChatAPI\forms.py changed, reloading.
+2025-01-28 16:25:59,402 INFO Watching for file changes with StatReloader
+2025-01-28 16:28:36,228 INFO Watching for file changes with StatReloader
+2025-01-28 16:28:52,000 INFO Watching for file changes with StatReloader
+2025-01-28 16:30:58,431 WARNING Not Found: /ws/chat/10/
+2025-01-28 16:31:10,094 WARNING Not Found: /ws/chat/10/
+2025-01-28 16:31:40,797 WARNING Not Found: /ws/chat/10/
+2025-01-28 16:32:02,427 WARNING Not Found: /ws/chat/10/
+2025-01-28 16:39:01,306 INFO Watching for file changes with StatReloader
+2025-01-28 16:39:04,751 ERROR Internal Server Error: /chat/10/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 175, in get
+    if request.user not in context['chat'].group_users.all():
+                           ~~~~~~~^^^^^^^^
+KeyError: 'chat'
+2025-01-28 16:39:28,562 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-28 16:39:29,588 INFO Watching for file changes with StatReloader
+2025-01-28 16:39:31,209 WARNING Not Found: /ws/chat/10/
+2025-01-28 16:39:33,036 WARNING Not Found: /ws/chat/10/
+2025-01-28 16:40:21,313 WARNING Not Found: /ws/chat/10/
+2025-01-28 19:36:03,466 INFO Watching for file changes with StatReloader
+2025-01-28 19:36:29,586 WARNING Not Found: /ws/chat/10/
+2025-01-28 19:36:52,579 WARNING Not Found: /ws/chat/11/
+2025-01-28 19:37:02,330 WARNING Not Found: /ws/chat/11/
+2025-01-28 20:03:53,149 INFO Watching for file changes with StatReloader
+2025-01-28 20:03:57,445 WARNING Not Found: /ws/chat/11/
+2025-01-28 20:03:58,751 ERROR Internal Server Error: /chat/11/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 184, in post
+    return redirect('chat_one', chat_id=chat_id)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\shortcuts.py", line 49, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+                          ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\shortcuts.py", line 180, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'chat_one' not found. 'chat_one' is not a valid view function or pattern name.
+2025-01-28 20:04:01,026 WARNING Not Found: /ws/chat/11/
+2025-01-28 20:04:01,673 WARNING Not Found: /ws/chat/11/
+2025-01-28 20:04:03,999 WARNING Not Found: /ws/chat/11/
+2025-01-28 20:04:10,256 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-28 20:04:11,605 INFO Watching for file changes with StatReloader
+2025-01-28 20:04:13,673 WARNING Not Found: /ws/chat/11/
+2025-01-28 20:04:33,427 WARNING Not Found: /favicon.ico
+2025-01-28 20:05:02,274 WARNING Not Found: /ws/chat/12/
+2025-01-28 20:05:03,356 WARNING Not Found: /ws/chat/12/
+2025-01-28 20:05:15,611 WARNING Not Found: /ws/chat/12/
+2025-01-28 20:05:20,129 WARNING Not Found: /ws/chat/12/
+2025-01-28 20:26:48,726 INFO Watching for file changes with StatReloader
+2025-01-28 20:27:11,410 WARNING Not Found: /favicon.ico
+2025-01-28 20:27:15,404 WARNING Not Found: /ws/chat/12/
+2025-01-28 20:27:16,398 WARNING Not Found: /ws/chat/12/
+2025-01-28 20:27:23,084 WARNING Not Found: /ws/chat/12/
+2025-01-28 20:33:48,463 INFO Watching for file changes with StatReloader
+2025-01-28 20:33:59,759 WARNING Not Found: /ws/chat/12/
+2025-01-28 20:34:02,282 WARNING Not Found: /ws/chat/12/
+2025-01-28 20:34:07,699 WARNING Not Found: /ws/chat/12/
+2025-01-28 20:34:15,975 WARNING Not Found: /ws/chat/12/
+2025-01-28 20:44:30,039 INFO Watching for file changes with StatReloader
+2025-01-28 20:44:55,055 INFO Watching for file changes with StatReloader
+2025-01-28 20:45:03,431 WARNING Not Found: /ws/chat/12/
+2025-01-28 20:46:09,045 WARNING Not Found: /ws/chat/13/
+2025-01-28 20:47:57,760 INFO Watching for file changes with StatReloader
+2025-01-29 12:34:30,246 INFO Watching for file changes with StatReloader
+2025-01-29 12:34:33,655 WARNING Not Found: /favicon.ico
+2025-01-29 13:37:57,501 INFO Watching for file changes with StatReloader
+2025-01-29 13:38:00,261 WARNING Not Found: /favicon.ico
+2025-01-29 13:38:04,246 WARNING Not Found: /ws/chat/10/
+2025-01-29 13:38:05,163 ERROR Internal Server Error: /chat/10/add_user/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 511, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 423, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected a `Response`, `HttpResponse` or `StreamingHttpResponse` to be returned from the view, but received a `<class 'NoneType'>`
+2025-01-29 13:38:15,147 ERROR Internal Server Error: /chat/10/add_user/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 511, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 423, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected a `Response`, `HttpResponse` or `StreamingHttpResponse` to be returned from the view, but received a `<class 'NoneType'>`
+2025-01-29 13:38:19,563 WARNING Not Found: /ws/chat/14/
+2025-01-29 13:38:20,596 ERROR Internal Server Error: /chat/14/add_user/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 511, in dispatch
+    self.response = self.finalize_response(request, response, *args, **kwargs)
+                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 423, in finalize_response
+    assert isinstance(response, HttpResponseBase), (
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Expected a `Response`, `HttpResponse` or `StreamingHttpResponse` to be returned from the view, but received a `<class 'NoneType'>`
+2025-01-29 13:38:36,971 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:38:37,991 INFO Watching for file changes with StatReloader
+2025-01-29 13:38:39,322 WARNING Method Not Allowed: /chat/14/add_user/
+2025-01-29 13:38:39,814 WARNING Not Found: /favicon.ico
+2025-01-29 13:38:43,545 WARNING Method Not Allowed: /chat/14/add_user/
+2025-01-29 13:40:01,425 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:40:02,659 INFO Watching for file changes with StatReloader
+2025-01-29 13:40:05,280 WARNING Not Found: /favicon.ico
+2025-01-29 13:40:05,560 WARNING Not Found: /ws/chat/14/
+2025-01-29 13:40:44,862 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:40:46,004 INFO Watching for file changes with StatReloader
+2025-01-29 13:40:47,862 WARNING Not Found: /favicon.ico
+2025-01-29 13:41:23,082 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:41:24,281 INFO Watching for file changes with StatReloader
+2025-01-29 13:41:27,648 WARNING Not Found: /ws/chat/10/
+2025-01-29 13:43:10,088 INFO Watching for file changes with StatReloader
+2025-01-29 13:43:13,972 WARNING Not Found: /ws/chat/10/
+2025-01-29 13:43:14,354 ERROR Internal Server Error: /chat/10/add_user/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 177, in get
+    users_queryset = ChatGroup.group_users.filter(chat=chat)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ManyToManyDescriptor' object has no attribute 'filter'
+2025-01-29 13:43:47,923 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:43:49,107 INFO Watching for file changes with StatReloader
+2025-01-29 13:43:50,328 ERROR Internal Server Error: /chat/10/add_user/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 177, in get
+    users_queryset = ChatGroup.group_users.all()
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ManyToManyDescriptor' object has no attribute 'all'
+2025-01-29 13:43:50,862 WARNING Not Found: /favicon.ico
+2025-01-29 13:43:51,771 WARNING Not Found: /favicon.ico
+2025-01-29 13:44:10,519 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:44:11,445 INFO Watching for file changes with StatReloader
+2025-01-29 13:44:27,144 INFO Watching for file changes with StatReloader
+2025-01-29 13:44:31,425 WARNING Not Found: /ws/chat/10/
+2025-01-29 13:44:31,948 ERROR Internal Server Error: /chat/10/add_user/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\fields\__init__.py", line 2123, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'ManyRelatedManager'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 177, in get
+    users_queryset = ChatGroup.objects.filter(group_users=chat.group_users)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1555, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1385, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\lookups.py", line 30, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\fields\related_lookups.py", line 156, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\fields\__init__.py", line 2125, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+TypeError: Field 'id' expected a number but got <django.db.models.fields.related_descriptors.create_forward_many_to_many_manager.<locals>.ManyRelatedManager object at 0x0000020B0EA67C50>.
+2025-01-29 13:46:05,433 ERROR Internal Server Error: /chat/10/add_user/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\fields\__init__.py", line 2123, in get_prep_value
+    return int(value)
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'ManyRelatedManager'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 177, in get
+    users_queryset = ChatGroup.objects.exclude(group_users=group_users)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\query.py", line 1476, in filter
+    return self._filter_or_exclude(False, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\query.py", line 1501, in _filter_or_exclude_inplace
+    self._query.add_q(Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1555, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1385, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\lookups.py", line 30, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\fields\related_lookups.py", line 156, in get_prep_lookup
+    self.rhs = target_field.get_prep_value(self.rhs)
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\fields\__init__.py", line 2125, in get_prep_value
+    raise e.__class__(
+        "Field '%s' expected a number but got %r." % (self.name, value),
+    ) from e
+TypeError: Field 'id' expected a number but got <django.db.models.fields.related_descriptors.create_forward_many_to_many_manager.<locals>.ManyRelatedManager object at 0x0000020B0EBC4A50>.
+2025-01-29 13:46:05,769 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:46:06,861 INFO Watching for file changes with StatReloader
+2025-01-29 13:46:07,933 ERROR Internal Server Error: /chat/10/add_user/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1517, in build_filter
+    join_info = self.setup_joins(
+        parts,
+    ...<3 lines>...
+        allow_many=allow_many,
+    )
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1863, in setup_joins
+    path, final_field, targets, rest = self.names_to_path(
+                                       ~~~~~~~~~~~~~~~~~~^
+        names[:pivot],
+        ^^^^^^^^^^^^^^
+    ...<2 lines>...
+        fail_on_missing=True,
+        ^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1792, in names_to_path
+    raise MultiJoin(pos + 1, names_with_path)
+django.db.models.sql.datastructures.MultiJoin: (1, [('group_users', [PathInfo(from_opts=<Options for ChatGroup>, to_opts=<Options for ChatGroup_group_users>, target_fields=(<django.db.models.fields.BigAutoField: id>,), join_field=<ManyToOneRel: ChatAPI.chatgroup_group_users>, m2m=True, direct=False, filtered_relation=None)])])
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 177, in get
+    users_queryset = ChatGroup.objects.exclude(group_users=group_users)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\query.py", line 1484, in exclude
+    return self._filter_or_exclude(True, args, kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\query.py", line 1494, in _filter_or_exclude
+    clone._filter_or_exclude_inplace(negate, args, kwargs)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\query.py", line 1499, in _filter_or_exclude_inplace
+    self._query.add_q(~Q(*args, **kwargs))
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1534, in build_filter
+    return self.split_exclude(filter_expr, can_reuse, e.names_with_path)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 2058, in split_exclude
+    query.add_filter(filter_lhs, filter_rhs)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1593, in add_filter
+    self.add_q(Q((filter_lhs, filter_rhs)))
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1609, in add_q
+    clause, _ = self._add_q(q_object, self.used_aliases)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1641, in _add_q
+    child_clause, needed_inner = self.build_filter(
+                                 ~~~~~~~~~~~~~~~~~^
+        child,
+        ^^^^^^
+    ...<7 lines>...
+        update_join_types=update_join_types,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1555, in build_filter
+    condition = self.build_lookup(lookups, col, value)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\sql\query.py", line 1385, in build_lookup
+    lookup = lookup_class(lhs, rhs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\lookups.py", line 30, in __init__
+    self.rhs = self.get_prep_lookup()
+               ~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\fields\related_lookups.py", line 158, in get_prep_lookup
+    return super().get_prep_lookup()
+           ~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\db\models\lookups.py", line 365, in get_prep_lookup
+    raise ValueError(
+    ...<2 lines>...
+    )
+ValueError: The QuerySet value for an exact lookup must be limited to one result using slicing.
+2025-01-29 13:46:08,001 WARNING Not Found: /favicon.ico
+2025-01-29 13:48:55,229 INFO Watching for file changes with StatReloader
+2025-01-29 13:48:59,741 WARNING Not Found: /ws/chat/10/
+2025-01-29 13:49:13,034 WARNING Not Found: /ws/chat/11/
+2025-01-29 13:50:01,688 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:50:02,646 INFO Watching for file changes with StatReloader
+2025-01-29 13:50:35,750 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:50:37,000 INFO Watching for file changes with StatReloader
+2025-01-29 13:50:53,760 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:50:54,795 INFO Watching for file changes with StatReloader
+2025-01-29 13:51:05,140 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:51:06,187 INFO Watching for file changes with StatReloader
+2025-01-29 13:51:11,381 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:51:12,421 INFO Watching for file changes with StatReloader
+2025-01-29 13:51:21,837 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:51:22,942 INFO Watching for file changes with StatReloader
+2025-01-29 13:51:35,777 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:51:36,651 INFO Watching for file changes with StatReloader
+2025-01-29 13:52:04,574 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:52:05,591 INFO Watching for file changes with StatReloader
+2025-01-29 13:52:13,942 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:52:15,073 INFO Watching for file changes with StatReloader
+2025-01-29 13:52:36,383 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:52:37,547 INFO Watching for file changes with StatReloader
+2025-01-29 13:53:04,005 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:53:05,168 INFO Watching for file changes with StatReloader
+2025-01-29 13:53:11,324 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:53:12,445 INFO Watching for file changes with StatReloader
+2025-01-29 13:53:30,509 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-01-29 13:53:31,594 INFO Watching for file changes with StatReloader
+2025-01-29 13:54:59,433 INFO Watching for file changes with StatReloader
+2025-01-29 13:55:04,865 WARNING Not Found: /ws/chat/10/
+2025-01-29 13:55:07,843 WARNING Not Found: /ws/chat/10/
+2025-01-29 13:55:15,965 WARNING Not Found: /ws/chat/10/
+2025-01-29 13:56:46,634 INFO Watching for file changes with StatReloader
+2025-01-29 13:56:50,602 WARNING Not Found: /ws/chat/10/
+2025-01-29 13:57:01,247 WARNING Not Found: /ws/chat/10/
+2025-01-29 13:57:08,094 WARNING Forbidden: /chat/11/
+2025-01-29 13:57:12,757 WARNING Forbidden: /chat/11/
+2025-01-29 13:57:20,050 WARNING Forbidden: /chats/
+2025-01-29 13:57:20,807 WARNING Forbidden: /chats/
+2025-01-29 13:57:21,361 WARNING Forbidden: /chats/
+2025-01-29 13:57:25,810 WARNING Forbidden: /logout/
+2025-01-29 13:57:32,607 INFO Watching for file changes with StatReloader
+2025-01-29 13:57:39,732 WARNING Not Found: /ws/chat/11/
+2025-01-29 13:57:44,595 WARNING Not Found: /ws/chat/11/
+2025-01-29 13:57:50,378 WARNING Not Found: /ws/chat/11/
+2025-01-29 13:57:53,091 WARNING Not Found: /ws/chat/11/
+2025-01-29 13:58:01,698 WARNING Not Found: /ws/chat/11/
+2025-01-29 13:58:12,201 WARNING Not Found: /ws/chat/14/
+2025-01-29 13:58:23,508 WARNING Not Found: /ws/chat/11/
+2025-01-29 13:58:27,497 WARNING Not Found: /ws/chat/10/
+2025-01-29 13:58:32,026 WARNING Not Found: /ws/chat/14/
+2025-01-29 17:42:37,258 INFO Watching for file changes with StatReloader
+2025-01-29 17:42:39,960 WARNING Not Found: /favicon.ico
+2025-01-29 17:50:35,812 INFO Watching for file changes with StatReloader
+2025-01-29 17:51:28,832 WARNING Not Found: /favicon.ico
+2025-01-29 17:51:29,848 WARNING Not Found: /favicon.ico
+2025-01-29 17:51:30,638 WARNING Not Found: /favicon.ico
+2025-01-29 17:51:33,326 WARNING Not Found: /favicon.ico
+2025-01-29 17:52:10,401 WARNING Not Found: /ws/chat/14/
+2025-01-29 18:04:23,736 WARNING Not Found: /favicon.ico
+2025-01-29 18:11:08,707 WARNING Not Found: /favicon.ico
+2025-01-29 18:13:23,764 WARNING Not Found: /favicon.ico
+2025-01-29 18:13:55,715 WARNING Not Found: /ws/chat/14/
+2025-01-29 18:28:59,793 INFO Watching for file changes with StatReloader
+2025-01-29 18:29:03,919 ERROR Internal Server Error: /chat/14/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 230, in get
+    return render(request, 'chatAPI/groupchat.html', context)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\test\utils.py", line 114, in instrumented_test_render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\engine.py", line 208, in select_template
+    return self.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 605, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 706, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ' == request.user.id ? 'user-message' : 'other-message'' from 'message.sender.id == request.user.id ? 'user-message' : 'other-message''
+2025-01-29 18:29:28,472 ERROR Internal Server Error: /chat/14/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 230, in get
+    return render(request, 'chatAPI/groupchat.html', context)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\test\utils.py", line 114, in instrumented_test_render
+    return self.nodelist.render(context)
+           ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ~~~~~~~~~~~^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\loader_tags.py", line 199, in render
+    template = context.template.engine.select_template(template_name)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\engine.py", line 208, in select_template
+    return self.get_template(template_name)
+           ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+        contents,
+    ...<2 lines>...
+        self.engine,
+    )
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\defaulttags.py", line 862, in do_for
+    nodelist_loop = parser.parse(
+        (
+    ...<2 lines>...
+        )
+    )
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 489, in parse
+    raise self.error(token, e)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 487, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 605, in compile_filter
+    return FilterExpression(token, self)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\template\base.py", line 706, in __init__
+    raise TemplateSyntaxError(
+    ...<2 lines>...
+    )
+django.template.exceptions.TemplateSyntaxError: Could not parse the remainder: ' == request.user.id ? 'user-message' : 'other-message'' from 'message.sender.id == request.user.id ? 'user-message' : 'other-message''
+2025-01-29 18:29:49,965 WARNING Not Found: /ws/chat/14/
+2025-01-29 18:30:20,530 WARNING Forbidden: /chat/14/
+2025-01-29 18:30:24,822 WARNING Forbidden: /logout/
+2025-01-29 18:30:26,544 WARNING Forbidden: /logout/
+2025-01-29 18:30:27,326 WARNING Forbidden: /logout/
+2025-01-29 18:30:27,607 WARNING Forbidden: /logout/
+2025-01-29 18:30:42,003 WARNING Not Found: /ws/chat/14/
+2025-01-29 18:32:50,080 WARNING Not Found: /ws/chat/14/
+2025-01-29 18:32:51,845 WARNING Not Found: /ws/chat/14/
+2025-01-29 18:32:52,360 WARNING Not Found: /ws/chat/14/
+2025-01-29 18:32:52,925 WARNING Not Found: /ws/chat/14/
+2025-01-29 18:32:54,067 WARNING Not Found: /ws/chat/14/
+2025-01-29 18:32:54,732 WARNING Not Found: /favicon.ico
+2025-01-29 18:32:55,002 WARNING Not Found: /ws/chat/14/
+2025-01-29 18:32:55,542 WARNING Not Found: /favicon.ico
+2025-01-29 18:32:55,814 WARNING Not Found: /ws/chat/14/
+2025-01-29 18:32:58,403 WARNING Not Found: /ws/chat/14/
+2025-01-29 22:59:00,610 INFO Watching for file changes with StatReloader
+2025-01-29 23:02:53,392 INFO D:\python\Chat_Django\ChatAPI\serializers.py changed, reloading.
+2025-01-29 23:02:54,362 INFO Watching for file changes with StatReloader
+2025-01-29 23:03:16,686 INFO D:\python\Chat_Django\ChatAPI\serializers.py changed, reloading.
+2025-01-29 23:03:17,765 INFO Watching for file changes with StatReloader
+2025-01-29 23:03:54,969 INFO D:\python\Chat_Django\ChatAPI\serializers.py changed, reloading.
+2025-01-29 23:03:56,140 INFO Watching for file changes with StatReloader
+2025-01-29 23:04:34,753 INFO D:\python\Chat_Django\ChatAPI\serializers.py changed, reloading.
+2025-01-29 23:04:35,920 INFO Watching for file changes with StatReloader
+2025-01-29 23:04:52,012 INFO D:\python\Chat_Django\ChatAPI\serializers.py changed, reloading.
+2025-01-29 23:04:53,157 INFO Watching for file changes with StatReloader
+2025-01-29 23:05:38,649 INFO D:\python\Chat_Django\ChatAPI\models.py changed, reloading.
+2025-01-29 23:05:39,624 INFO Watching for file changes with StatReloader
+2025-01-29 23:05:40,999 WARNING Not Found: /favicon.ico
+2025-01-29 23:06:51,769 WARNING Not Found: /favicon.ico
+2025-01-29 23:09:18,948 INFO Watching for file changes with StatReloader
+2025-01-29 23:09:22,463 WARNING Not Found: /ws/chat/14/
+2025-01-29 23:10:18,631 WARNING Not Found: /favicon.ico
+2025-01-29 23:10:18,643 WARNING Not Found: /ws/chat/14/
+2025-01-29 23:10:19,170 WARNING Not Found: /favicon.ico
+2025-01-29 23:10:19,458 WARNING Not Found: /ws/chat/14/
+2025-01-29 23:10:20,461 WARNING Not Found: /favicon.ico
+2025-01-29 23:10:20,727 WARNING Not Found: /ws/chat/14/
+2025-01-29 23:10:27,343 WARNING Not Found: /ws/chat/14/
+2025-01-29 23:10:27,922 WARNING Not Found: /ws/chat/14/
+2025-01-29 23:11:43,718 WARNING Not Found: /ws/chat/14/
+2025-01-29 23:12:22,652 WARNING Not Found: /favicon.ico
+2025-01-29 23:12:24,706 WARNING Not Found: /ws/chat/14/
+2025-01-29 23:12:37,830 WARNING Not Found: /ws/chat/14/
+2025-01-30 12:33:45,322 INFO Watching for file changes with StatReloader
+2025-01-30 12:33:49,341 WARNING Not Found: /favicon.ico
+2025-01-30 12:33:50,969 WARNING Not Found: /ws/chat/14/

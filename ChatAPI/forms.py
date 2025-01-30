@@ -29,11 +29,38 @@ class SignUpForm(UserCreationForm):
         fields = ('username', 'email', 'date_birth', 'password1', 'password2', )
 
 
+class ChatForm(forms.ModelForm):
+    group_name = forms.CharField(widget=forms.TextInput(), label_suffix='')
+    group_users = forms.ModelMultipleChoiceField(
+        widget=forms.CheckboxSelectMultiple,
+        required=True,
+        queryset=User.objects.all()
+    )
+
+    class Meta:
+        model = ChatGroup
+        fields = ('group_name', 'group_users')
+
+class AddUserGroupForm(forms.ModelForm):
+    group_users = forms.ModelMultipleChoiceField(
+        widget=forms.CheckboxSelectMultiple,
+        required=True,
+        queryset=User.objects.all()
+    )
+
+    class Meta:
+        model = ChatGroup
+        fields = ('group_users', )
+
+
 class GroupMessageForm(forms.ModelForm):
     body = forms.CharField(widget=forms.TextInput(), label_suffix='')
+
     class Meta:
         model = GroupMessage
         fields = ['body']
+
+
 
 
 class DirectMessageForm(forms.ModelForm):
@@ -42,8 +69,3 @@ class DirectMessageForm(forms.ModelForm):
     class Meta:
         model = DirectMessage
         fields = ['body']
-
-
-
-
-

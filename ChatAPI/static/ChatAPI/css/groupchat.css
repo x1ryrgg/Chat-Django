@@ -1,0 +1,110 @@
+/* Основные стили */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+#chat-window {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow-y: auto;
+    height: 400px;
+    padding: 10px;
+}
+
+#chat-window ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#chat-window li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    word-wrap: break-word;
+}
+
+/* Стили для сообщений пользователя */
+.user-message {
+    text-align: right;
+    background-color: #dcf8c6;
+}
+
+.user-message strong {
+    color: #1b5e20;
+}
+
+/* Стили для сообщений других пользователей */
+.other-message {
+    text-align: left;
+    background-color: #ffffff;
+}
+
+.other-message strong {
+    color: #000000;
+}
+
+/* Форма отправки сообщений */
+form {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form div {
+    margin-bottom: 10px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Кнопки действий */
+hr {
+    margin: 20px 0;
+}
+
+a, button {
+    display: inline-block;
+    margin: 5px 0;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover, button:hover {
+    background-color: #45a049;
+}
