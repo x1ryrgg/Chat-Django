@@ -13,12 +13,14 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.views import TokenObtainPairView
+
 from .models import *
 from .serializers import *
 from .forms import *
 from .filters import *
-
-logger = logging.getLogger(__name__)
+from .permissions import *
 
 User = get_user_model()
 
@@ -36,7 +38,7 @@ def show_errors(request, form) -> None:
         for error in errors:
             message = error['message']
             messages.warning(request, _(message))
-            logger.warning("Got an invalid %s form: %s", form.__class__.__name__, message)
+
 
 
 class LoginView(APIView):
@@ -45,7 +47,6 @@ class LoginView(APIView):
         if request.user.is_anonymous:
             form = LoginForm()
             return render(request, 'ChatAPI/login.html', context={'title': 'Авторизация', 'form': form})
-        logger.info("User %s tried to login" % request.user)
         messages.info(request, _("Вы уже вошли в аккаунт."))
         return redirect('chats')
 
@@ -72,7 +73,6 @@ class SignupView(APIView):
         if request.user.is_anonymous:
             form = SignUpForm()
             return render(request, 'ChatAPI/signup.html', context={'title': 'Регистрация', 'form': form})
-        logger.info("User %s tried to login" % request.user)
         messages.info(request, _("Вы уже зарегестрировали аккаунт."))
         return redirect('chats')
 
@@ -84,11 +84,10 @@ class SignupView(APIView):
             email = form.cleaned_data['email']
             password = form.cleaned_data['password1']
             if User.objects.filter(email=email).exists():
-                logger.info("Пользователь пытается зарегестрироваться уже с сущетвующей почтой %s" % email)
+                messages.error(request, _("Пользователь с такой почтой уже зарегестирован."))
                 return redirect('signup')
-            user = User.objects.create_user(username=username,email=email, password=password,)
+            User.objects.create_user(username=username,email=email, password=password,)
             messages.success(request, _("Вы успешно зарегистрированы, можете войти в свой аккаунт."))
-            logger.info("User %s successfully registered" % user)
         else:
             show_errors(request, form)
             return redirect('signup')
@@ -97,24 +96,20 @@ class SignupView(APIView):
 
 class LogoutView(APIView):
     permission_classes = [IsAuthenticated, ]
-
     @staticmethod
     def get(request):
         if not request.user.is_anonymous:
             logout(request)
-        else:
-            logger.info("Anonymous user try to log out")
         return redirect('login')
 
 
 class ChatsView(APIView):
     permission_classes = [IsAuthenticated, ]
-
     @staticmethod
     def get(request):
         user = request.user
 
-        query_filter = UserNameFilter(request.GET, queryset=User.objects.exclude(username=user.username))
+        query_filter = UserNameFilter(request.GET, queryset=request.user.friends.all())
         user_serializer = UserSerializer(query_filter.qs, many=True)
 
         chatgroup_query = ChatGroup.objects.filter(group_users=user)
@@ -128,11 +123,10 @@ class ChatsView(APIView):
 
 class GroupChatCreateView(APIView):
     permission_classes = [IsAuthenticated, ]
-
     @staticmethod
     def get(request):
         form = ChatForm()
-        users_queryset = User.objects.exclude(pk=request.user.pk)
+        users_queryset = User.objects.filter(pk__in=request.user.friends.all())
         form.fields['group_users'].queryset = users_queryset
         return render(request, 'ChatAPI/group-create.html', context={'form': form,
                                                                      'title': 'Создание группового чата'})
@@ -143,19 +137,19 @@ class GroupChatCreateView(APIView):
 
         if form.is_valid():
             chat_group = form.save(commit=False)
+            chat_group.creator = request.user
             chat_group.save()
             form.save_m2m()
 
             chat_group.group_users.add(request.user)
             return redirect(reverse_lazy('chats'))
 
-        return render(request, 'ChatAPI/group-create.html', context={{'form': form,
-                                                                      'title': 'Создание группового чата'}})
+        return render(request, 'ChatAPI/group-create.html', context={'form': form,
+                                                                      'title': 'Создание группового чата'})
 
 
-class LeaveGroupChatView(APIView):
+class LeaveGroupChat(APIView):
     permission_classes = [IsAuthenticated, ]
-
     @staticmethod
     def post(request, chat_id):
         chat = get_object_or_404(ChatGroup, pk=chat_id)
@@ -166,45 +160,59 @@ class LeaveGroupChatView(APIView):
             chat.save()
             return redirect(reverse_lazy('chats'))
 
-class AddGroupChatView(APIView):
-    permission_classes = [IsAuthenticated, ]
 
+class AddGroupUser(APIView):
+    permission_classes = [IsAuthenticated, ]
     @staticmethod
     def get(request, chat_id):
         chat = get_object_or_404(ChatGroup, pk=chat_id)
-        form = AddUserGroupForm()
+
+        if request.user not in chat.group_admin_users.all():
+            messages.error(request, _("Только администратор может добавлять пользователей."))
+            return redirect(reverse_lazy('peer', kwargs={'chat_id': chat_id}))
 
         existing_users = chat.group_users.all() # в форме отображаются пользователи которых не в чате.
-        users_queryset = User.objects.exclude(pk=request.user.pk).exclude(pk__in=existing_users)
+        user_friends = request.user.friends.all() # а так же только друзья.
+        users_queryset = User.objects.exclude(pk=request.user.pk).exclude(pk__in=existing_users).filter(pk__in=user_friends)
+        form = UserGroupForm()
         form.fields['group_users'].queryset = users_queryset
-
-        return render(request, 'ChatAPI/add_user.html', context={'chat': chat, 'form': form,
+        return render(request, 'ChatAPI/action_user.html', context={'chat': chat, 'form': form,
                                                                  'title': 'Добавление пользователей в чат'})
-
     @staticmethod
     def post(request, chat_id):
         chat = get_object_or_404(ChatGroup, pk=chat_id)
-        form = AddUserGroupForm(data=request.POST)
+        form = UserGroupForm(data=request.POST)
 
         if form.is_valid():
             selected_users = form.cleaned_data['group_users']
 
             for user in selected_users:
                 chat.group_users.add(user)
+            return redirect(reverse_lazy('peer', kwargs={'chat_id': chat_id}))
 
-            return redirect(reverse_lazy('chat', kwargs={'chat_id': chat_id}))
 
-        existing_users = chat.group_users.all()
-        users_queryset = User.objects.exclude(pk=request.user.pk).exclude(pk__in=existing_users)
-        form.fields['group_users'].queryset = users_queryset
+class RemoveGroupUser(APIView):
+    permission_classes = [IsAuthenticated]
+    @staticmethod
+    def post(request, chat_id, user_id):
+        chat = get_object_or_404(ChatGroup, pk=chat_id)
+        user_to_remove = get_object_or_404(User, pk=user_id)
 
-        return render(request, 'ChatAPI/add_user.html', context={'chat': chat, 'form': form,
-                                                                 'title': 'Добавление пользователей в чат'})
+        if request.user not in chat.group_admin_users.all():
+            messages.error(request, "Только администратор может убирать пользователей.")
+            return redirect(reverse_lazy('peer', kwargs={'chat_id': chat_id}))
+
+        if user_to_remove in chat.group_admin_users.all() or user_to_remove == request.user:
+            messages.error(request, "Администраторов нельзя удалять из чата.")
+            return redirect(reverse_lazy('peer', kwargs={'chat_id': chat_id}))
+
+        chat.group_users.remove(user_to_remove)
+        messages.success(request, f"Пользователь {user_to_remove.username} успешно удален из чата.")
+        return redirect(reverse_lazy('peer', kwargs={'chat_id': chat_id}))
 
 
 class GroupChatView(APIView):
     permission_classes = [IsAuthenticated, ]
-
     @staticmethod
     def get_group_context(chat_id):
         chat = get_object_or_404(ChatGroup, id=chat_id)
@@ -213,10 +221,10 @@ class GroupChatView(APIView):
         serializer = GroupMessageSerializer(query, many=True)
         form = GroupMessageForm()
         return {
+            'chat': chat,
             'serializer': serializer.data,
             'form': form,
-            'title': 'Групповой чат',
-            'chat': chat,
+            'title': chat.group_name,
         }
 
     @staticmethod
@@ -248,9 +256,36 @@ class GroupChatView(APIView):
         return render(request, 'chatAPI/groupchat.html', context)
 
 
+class PeerGroupChatView(APIView):
+    permission_classes = [IsAuthenticated, ]
+    @staticmethod
+    def get(request, chat_id):
+        chat = get_object_or_404(ChatGroup, id=chat_id)
+
+        users = chat.group_users.all()
+        admins = chat.group_admin_users.all()
+        return render(request, 'ChatAPI/peer.html', context={'chat': chat, 'title': chat.group_name,
+                                                             'users': users, 'user': request.user, 'admins': admins})
+
+
+class AddGroupAdmin(APIView):
+    permission_classes = [IsAuthenticated, ]
+    @staticmethod
+    def post(request, chat_id, user_id):
+        chat = get_object_or_404(ChatGroup, id=chat_id)
+        user = get_object_or_404(User, id=user_id)
+
+        if request.user not in chat.group_users.all():
+            messages.error(request, _('Только администратор может назначать пользователя админом.'))
+            return redirect(reverse_lazy('peer'), kwargs={'chat_id': chat_id})
+
+        chat.group_admin_users.add(user)
+        messages.success(request, _(f'{user.username} успешно установленен как админ.'))
+        return redirect(reverse_lazy('peer', kwargs={'chat_id': chat_id}))
+
+
 class DirectView(APIView):
     permission_classes = [IsAuthenticated, ]
-
     @staticmethod
     def get_direct_context(user_id, current_user):
         query = DirectMessage.objects.filter(
@@ -289,3 +324,20 @@ class DirectView(APIView):
         context = DirectView.get_direct_context(user_id, request.user)
         context['form'] = form
         return render(request, 'chatAPI/direct.html', context)
+
+
+class RegisterViewAPI(APIView):
+    def post(self, request):
+        serializer = RegisterSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            refresh = RefreshToken.for_user(user)
+            return Response({
+                'refresh': str(refresh),
+                'access': str(refresh.access_token),
+            })
+        return Response(serializer.errors)
+
+
+class LoginViewAPI(TokenObtainPairView):
+    pass

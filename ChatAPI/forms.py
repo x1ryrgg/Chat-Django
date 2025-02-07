@@ -33,7 +33,7 @@ class ChatForm(forms.ModelForm):
     group_name = forms.CharField(widget=forms.TextInput(), label_suffix='')
     group_users = forms.ModelMultipleChoiceField(
         widget=forms.CheckboxSelectMultiple,
-        required=True,
+        required=False,
         queryset=User.objects.all()
     )
 
@@ -41,7 +41,7 @@ class ChatForm(forms.ModelForm):
         model = ChatGroup
         fields = ('group_name', 'group_users')
 
-class AddUserGroupForm(forms.ModelForm):
+class UserGroupForm(forms.ModelForm): #для удаления и добавления пользователей в групп чат
     group_users = forms.ModelMultipleChoiceField(
         widget=forms.CheckboxSelectMultiple,
         required=True,
@@ -59,8 +59,6 @@ class GroupMessageForm(forms.ModelForm):
     class Meta:
         model = GroupMessage
         fields = ['body']
-
-
 
 
 class DirectMessageForm(forms.ModelForm):

@@ -13,6 +13,9 @@
                 <h2>{{ user.username }}</h2>
             </div>
             <div class="actions">
+                <a href="{% url 'friend_requests:incoming_friend_requests'%}">Уведомления</a>
+                <a href="{% url 'friend_requests:friends' %}">Друзья</a>
+                <a href="{% url 'friend_requests:search_users' %}"> Найти друзей </a>
                 <a href="{% url 'create-chat' %}" class="chat-item">Создать групповой чат</a>
                 <a href="{% url 'logout' %}">Выйти из аккаунта</a>
             </div>
@@ -49,11 +52,13 @@
 
         <div class="user-section">
             <div class="user-list">
-                <h2>Пользователи</h2>
+                <h2>Ваши друзья</h2>
                 {% for i in user_serializer %}
                     <div class="user-item">
                         <a href="{% url 'direct' i.pk %}">{{ i.username }}</a>
                     </div>
+                    {% empty %}
+                    <div> У вас нет друзей.</div>
                 {% endfor %}
             </div>
         </div>

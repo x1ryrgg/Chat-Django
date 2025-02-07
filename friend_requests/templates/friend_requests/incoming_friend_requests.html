@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    {% if requests %}
+        <ul>
+            {% for req in requests %}
+                <li>
+                    {{ req.from_user.username }} хочет добавить вас в друзья.
+                    <a href="{% url 'friend_requests:handle_friend_request' req.id 'accept' %}">Принять</a> |
+                    <a href="{% url 'friend_requests:handle_friend_request' req.id 'decline' %}">Отклонить</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>У вас нет входящих запросов на добавление в друзья.</p>
+    {% endif %}
+</body>
+</html>

@@ -45,8 +45,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'ChatAPI',
+    'friend_requests',
     'rest_framework',
     'rest_framework.authtoken',
+    'rest_framework_simplejwt',
     'django_filters',
     'django_htmx',
     'channels', # для web-сокетов
@@ -68,6 +70,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     'allauth.account.middleware.AccountMiddleware',
+    'ChatAPI.my_middleware.LoggerMiddleware',
 ]
 
 ROOT_URLCONF = 'Chat_Django.urls'
@@ -185,3 +188,10 @@ LOGGING = { # для логирования
         }
     },
 }
+
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_PERMISSION_CLASSES': (
+#         'rest_framework_simplejwt.authentication.authentication'
+#     ),
+# }

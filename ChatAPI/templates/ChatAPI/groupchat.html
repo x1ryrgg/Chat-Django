@@ -41,6 +41,7 @@
 </script>
 </head>
 <body>
+    <h1><a href='{% url 'peer' chat_id %}'>{{ chat.group_name }}</a></h1>
     <div id="chat-window">
         {% include 'ChatAPI/messages.html' %}
     </div>
@@ -57,15 +58,6 @@
         {% endfor %}
         <p><button type="submit">Отправить сообщение</button></p>
     </form>
-    <hr>
-    <form method="post" action="{% url 'remove_user' chat.id %}">
-        {% csrf_token %}
-        <button type="submit">Выйти из чата</button>
-    </form>
-    <hr>
-    <div><a href="{% url 'add_user' chat.id %}"> Добавить друзей в чат</a></div>
-    <hr>
-    <div><a href="{% url 'chats' %}"> Обратно в чаты</a></div>
     <script>
         // Обновление после успешного запроса
         let chatWindow = document.getElementById('chat-window');

@@ -1,0 +1,49 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+
+         <h2>Поиск пользователя</h2>
+                <form method="get" action="{% url 'friend_requests:search_users' %}">
+                    {% for f in filter.form %}
+                        <p class="form-group">
+                            <label class="form-control" for="{{ f.id_for_label }}">{{ f.label }}:</label>
+                            {{ f }}
+                        </p>
+                        {% if f.errors %}
+                            <div class="form-error">{{ f.errors }}</div>
+                        {% endif %}
+                    {% endfor %}
+                    <button class="btn btn-primary" type="submit">Найти</button>
+                </form>
+         <hr>
+         {% for message in messages %}
+        <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+        {% endfor %}
+         <hr>
+
+        <div class="user-list">
+    <h2>Пользователи</h2>
+    {% for user_data in users %}
+        <div class="user-item">
+            <div>{{ user_data.user.username }}</div>
+            {% if user_data.is_subscribed %}
+                <span>Заяка отправлена</span>
+            {% else %}
+                <form method="post" action="{% url 'friend_requests:send_friend' user_data.user.id %}">
+                    {% csrf_token %}
+                    <button type="submit">Отправить заявку в друзья</button>
+                </form>
+            {% endif %}
+        </div>
+    {% endfor %}
+        </div>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+    {% if user in admins %}
+        <div>Вы являетесь админом этого чата.</div>
+    {% endif %}
+
+    <div><a href="{% url 'chat' chat.id %}"> Вернуться в чат</a></div>
+
+    <hr>
+
+    <form method="post" action="{% url 'leave' chat.id %}">
+        {% csrf_token %}
+        <button type="submit">Выйти из чата</button>
+    </form>
+    <hr>
+
+
+    <div><a href="{% url 'add_user' chat.id %}">Добавить друзей в чат</a></div>
+    <hr>
+
+
+    {% for message in messages %}
+        <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+    <hr>
+
+
+    <div>
+        <h2>Пользователи чата:</h2>
+        <ul>
+            {% for user in users %}
+                <li>
+                    {{ user.username }}
+                    {% if request.user in chat.group_admin_users.all and user != request.user %}
+                        <form method="post" action="{% url 'remove_user' chat.id user.id%}">
+                            {% csrf_token %}
+                            <button type="submit">Удалить пользователя</button>
+                        </form>
+                    {% endif %}
+                    {% if user not in chat.group_admin_users.all %}
+                        <form method="post" action='{% url 'add_admin' chat.id user.id %}'>
+                            {% csrf_token %}
+                            <button type="submit">Назначить админом </button>
+                        </form>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
