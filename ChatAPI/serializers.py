@@ -5,7 +5,7 @@ from rest_framework import serializers
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'friends')
+        fields = ('id', 'username')
 
 
 class ChatGroupSerializer(serializers.ModelSerializer):
@@ -16,7 +16,6 @@ class ChatGroupSerializer(serializers.ModelSerializer):
 
 
 class GroupMessageSerializer(serializers.ModelSerializer):
-    group = ChatGroupSerializer(read_only=True)
     sender = UserSerializer(read_only=True)
 
     class Meta:
@@ -30,7 +29,7 @@ class DirectMessageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DirectMessage
-        fields = ('sender', 'receiver', 'body', 'time_sent')
+        fields = ('sender', 'receiver', 'body', 'date_sent')
 
 
 # TEST JWT

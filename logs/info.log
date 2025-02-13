@@ -21050,3 +21050,761 @@ django.urls.exceptions.NoReverseMatch: Reverse for 'direct' with no arguments no
 2025-02-13 10:32:44,218 INFO Watching for file changes with StatReloader
 2025-02-13 10:32:50,206 INFO Request: GET /signup/ | Пользователь: root
 2025-02-13 10:32:50,497 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 12:05:10,616 INFO Watching for file changes with StatReloader
+2025-02-13 12:05:14,760 INFO Request: GET / | Пользователь: root
+2025-02-13 12:05:15,054 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 12:05:18,497 INFO Request: GET /logout/ | Пользователь: root
+2025-02-13 12:05:18,565 INFO Request: GET /login/ | AnonymousUser
+2025-02-13 12:05:20,318 INFO Request: GET /logout/ | AnonymousUser
+2025-02-13 12:05:20,381 WARNING Forbidden: /logout/
+2025-02-13 12:05:26,964 INFO Request: GET /logout/ | AnonymousUser
+2025-02-13 12:05:26,977 WARNING Forbidden: /logout/
+2025-02-13 12:05:29,493 INFO Request: GET /logout/ | AnonymousUser
+2025-02-13 12:05:29,510 WARNING Forbidden: /logout/
+2025-02-13 12:05:31,737 INFO Request: GET / | AnonymousUser
+2025-02-13 12:05:31,750 INFO Request: GET /login/ | AnonymousUser
+2025-02-13 12:05:33,223 INFO Request: POST /login/ | AnonymousUser
+2025-02-13 12:05:35,016 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 12:05:44,521 INFO Request: GET /chat/19/ | Пользователь: root
+2025-02-13 12:05:45,102 INFO Request: GET /ws/chat/19/ | Пользователь: root
+2025-02-13 12:05:45,178 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:05:54,479 INFO Request: POST /chat/19/ | Пользователь: root
+2025-02-13 12:05:54,911 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: root
+2025-02-13 12:05:57,141 INFO Request: POST /chat/19/ | Пользователь: root
+2025-02-13 12:05:57,748 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: root
+2025-02-13 12:06:04,077 INFO Request: GET /direct/3/ | Пользователь: root
+2025-02-13 12:06:06,054 INFO Request: GET /chat/19/ | Пользователь: root
+2025-02-13 12:06:06,545 INFO Request: GET /ws/chat/19/ | Пользователь: root
+2025-02-13 12:06:06,730 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:06:10,610 INFO Request: GET /logout/ | Пользователь: root
+2025-02-13 12:06:10,690 INFO Request: GET /login/ | AnonymousUser
+2025-02-13 12:06:12,929 INFO Request: GET /chat/19/ | AnonymousUser
+2025-02-13 12:06:12,943 WARNING Forbidden: /chat/19/
+2025-02-13 12:06:15,557 INFO Request: POST /login/ | AnonymousUser
+2025-02-13 12:06:17,057 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 12:06:17,853 INFO Request: GET /chat/19/ | Пользователь: root
+2025-02-13 12:06:18,484 INFO Request: GET /ws/chat/19/ | Пользователь: root
+2025-02-13 12:06:18,546 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:06:18,951 INFO Request: GET /chat/19/peer/ | Пользователь: root
+2025-02-13 12:06:22,984 INFO Request: GET /chat/19/peer/add_user/ | Пользователь: root
+2025-02-13 12:06:25,340 INFO Request: POST /chat/19/peer/add_user/ | Пользователь: root
+2025-02-13 12:06:25,436 INFO Request: GET /chat/19/peer/ | Пользователь: root
+2025-02-13 12:06:30,396 INFO Request: GET /logout/ | Пользователь: root
+2025-02-13 12:06:30,576 INFO Request: GET /login/ | AnonymousUser
+2025-02-13 12:06:33,712 INFO Request: POST /login/ | AnonymousUser
+2025-02-13 12:06:35,034 INFO Request: GET /chats/ | Пользователь: x1ryrg
+2025-02-13 12:06:35,965 INFO Request: GET /chat/19/ | Пользователь: x1ryrg
+2025-02-13 12:06:36,669 INFO Request: GET /ws/chat/19/ | Пользователь: x1ryrg
+2025-02-13 12:06:36,732 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:06:44,430 INFO Request: POST /chat/19/ | Пользователь: x1ryrg
+2025-02-13 12:06:44,938 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: x1ryrg
+2025-02-13 12:07:50,913 INFO Request: GET /chat/19/ | Пользователь: x1ryrg
+2025-02-13 12:07:51,508 INFO Request: GET /ws/chat/19/ | Пользователь: x1ryrg
+2025-02-13 12:07:51,571 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:08:11,569 INFO Request: GET /chat/19/ | Пользователь: x1ryrg
+2025-02-13 12:08:12,039 INFO Request: GET /ws/chat/19/ | Пользователь: x1ryrg
+2025-02-13 12:08:12,101 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:08:20,311 INFO Request: POST /chat/19/ | Пользователь: x1ryrg
+2025-02-13 12:08:20,758 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: x1ryrg
+2025-02-13 12:08:22,295 INFO Request: GET /chat/19/peer/ | Пользователь: x1ryrg
+2025-02-13 12:08:25,535 INFO Request: GET /chat/19/peer/add_user/ | Пользователь: x1ryrg
+2025-02-13 12:08:25,612 INFO Request: GET /chat/19/peer/ | Пользователь: x1ryrg
+2025-02-13 12:08:28,092 INFO Request: GET /chat/19/peer/ | Пользователь: x1ryrg
+2025-02-13 12:08:30,058 INFO Request: GET /logout/ | Пользователь: x1ryrg
+2025-02-13 12:08:30,251 INFO Request: GET /login/ | AnonymousUser
+2025-02-13 12:08:36,862 INFO Request: POST /login/ | AnonymousUser
+2025-02-13 12:08:38,274 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 12:08:39,532 INFO Request: GET /chat/19/ | Пользователь: root
+2025-02-13 12:08:40,238 INFO Request: GET /ws/chat/19/ | Пользователь: root
+2025-02-13 12:08:40,308 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:09:26,411 INFO Request: GET /chat/19/peer/ | Пользователь: root
+2025-02-13 12:09:28,205 INFO Request: GET /chat/19/peer/add_user/ | Пользователь: root
+2025-02-13 12:09:29,317 INFO Request: POST /chat/19/peer/add_user/ | Пользователь: root
+2025-02-13 12:09:29,401 INFO Request: GET /chat/19/peer/ | Пользователь: root
+2025-02-13 12:09:33,131 INFO Request: GET /logout/ | Пользователь: root
+2025-02-13 12:09:33,204 INFO Request: GET /login/ | AnonymousUser
+2025-02-13 12:09:35,635 INFO Request: POST /login/ | AnonymousUser
+2025-02-13 12:09:36,790 INFO Request: GET /chats/ | Пользователь: test3
+2025-02-13 12:09:37,920 INFO Request: GET /friends/ | Пользователь: test3
+2025-02-13 12:09:40,831 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:09:41,494 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:09:41,680 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:19:39,924 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:19:40,441 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:19:40,506 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:19:47,796 INFO Watching for file changes with StatReloader
+2025-02-13 12:19:56,023 INFO Request: GET / | Пользователь: test3
+2025-02-13 12:19:56,199 INFO Request: GET /chats/ | Пользователь: test3
+2025-02-13 12:19:57,391 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:19:57,949 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:19:58,008 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:20:02,230 INFO Request: POST /chat/19/ | Пользователь: test3
+2025-02-13 12:20:03,030 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: test3
+2025-02-13 12:20:51,945 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:20:52,657 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:20:52,766 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:20:58,427 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:20:58,733 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:20:59,519 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:20:59,588 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:22:28,584 INFO Request: GET /chat/20/ | Пользователь: test3
+2025-02-13 12:22:28,987 INFO Request: GET /ws/chat/20/ | Пользователь: test3
+2025-02-13 12:22:29,046 WARNING Not Found: /ws/chat/20/
+2025-02-13 12:22:30,741 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:22:31,267 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:22:31,362 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:23:15,819 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:23:16,447 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:23:16,505 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:23:19,237 INFO Request: POST /chat/19/ | Пользователь: test3
+2025-02-13 12:23:19,683 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: test3
+2025-02-13 12:23:21,632 INFO Request: POST /chat/19/ | Пользователь: test3
+2025-02-13 12:23:22,322 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: test3
+2025-02-13 12:24:01,483 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:24:02,167 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:24:02,239 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:24:02,369 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:24:02,970 INFO Request: GET /favicon.ico | Пользователь: test3
+2025-02-13 12:24:03,187 WARNING Not Found: /favicon.ico
+2025-02-13 12:24:03,235 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:24:03,351 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:24:05,287 INFO Request: POST /chat/19/ | Пользователь: test3
+2025-02-13 12:24:06,142 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: test3
+2025-02-13 12:28:23,170 INFO Watching for file changes with StatReloader
+2025-02-13 12:28:25,003 INFO Request: GET / | Пользователь: test3
+2025-02-13 12:28:25,284 INFO Request: GET /chats/ | Пользователь: test3
+2025-02-13 12:28:26,862 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:28:27,449 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:28:27,509 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:29:42,149 INFO Watching for file changes with StatReloader
+2025-02-13 12:29:44,691 INFO Request: GET /direct/1/ | Пользователь: test3
+2025-02-13 12:29:47,441 INFO Request: POST /direct/1/ | Пользователь: test3
+2025-02-13 12:29:47,756 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: test3
+2025-02-13 12:29:52,804 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:29:53,511 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:29:53,705 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:30:01,765 INFO Request: POST /chat/19/ | Пользователь: test3
+2025-02-13 12:30:02,463 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: test3
+2025-02-13 12:30:03,730 INFO Request: GET /__debug__/render_panel/ | Пользователь: test3
+2025-02-13 12:30:30,290 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:30:31,176 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:30:34,894 INFO Request: POST /chat/19/ | Пользователь: test3
+2025-02-13 12:30:35,723 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: test3
+2025-02-13 12:30:38,630 INFO Request: POST /chat/19/ | Пользователь: test3
+2025-02-13 12:30:39,330 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: test3
+2025-02-13 12:30:46,426 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:30:47,428 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:30:47,501 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:30:50,010 INFO Request: POST /chat/19/ | Пользователь: test3
+2025-02-13 12:30:50,748 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: test3
+2025-02-13 12:30:59,310 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:30:59,752 INFO Request: GET /favicon.ico | Пользователь: test3
+2025-02-13 12:30:59,819 WARNING Not Found: /favicon.ico
+2025-02-13 12:31:02,221 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:31:02,643 INFO Request: GET /favicon.ico | Пользователь: test3
+2025-02-13 12:31:02,712 WARNING Not Found: /favicon.ico
+2025-02-13 12:31:07,351 INFO Watching for file changes with StatReloader
+2025-02-13 12:31:10,330 INFO Request: GET / | Пользователь: test3
+2025-02-13 12:31:10,506 INFO Request: GET /chats/ | Пользователь: test3
+2025-02-13 12:31:11,832 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:32:25,995 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:32:26,571 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:32:26,634 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:32:41,098 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:32:41,447 INFO Request: GET /favicon.ico | Пользователь: test3
+2025-02-13 12:32:41,517 WARNING Not Found: /favicon.ico
+2025-02-13 12:32:41,745 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:32:41,803 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:32:42,954 INFO Request: GET /chat/20/ | Пользователь: test3
+2025-02-13 12:32:43,345 INFO Request: GET /ws/chat/20/ | Пользователь: test3
+2025-02-13 12:32:43,411 WARNING Not Found: /ws/chat/20/
+2025-02-13 12:32:45,379 INFO Request: GET /__debug__/render_panel/ | Пользователь: test3
+2025-02-13 12:32:48,011 INFO Request: POST /chat/20/ | Пользователь: test3
+2025-02-13 12:32:48,332 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: test3
+2025-02-13 12:32:49,952 INFO Request: GET /chat/20/ | Пользователь: test3
+2025-02-13 12:32:50,382 INFO Request: GET /ws/chat/20/ | Пользователь: test3
+2025-02-13 12:32:50,474 WARNING Not Found: /ws/chat/20/
+2025-02-13 12:32:51,229 INFO Request: GET /__debug__/render_panel/ | Пользователь: test3
+2025-02-13 12:32:55,377 INFO Request: GET /direct/1/ | Пользователь: test3
+2025-02-13 12:32:57,073 INFO Request: GET /__debug__/render_panel/ | Пользователь: test3
+2025-02-13 12:33:04,597 INFO Request: GET /chats/ | Пользователь: test3
+2025-02-13 12:33:05,382 INFO Request: GET /chats/ | Пользователь: test3
+2025-02-13 12:33:06,216 INFO Request: GET /__debug__/render_panel/ | Пользователь: test3
+2025-02-13 12:33:10,336 INFO Request: GET /incoming_friend_requests/ | Пользователь: test3
+2025-02-13 12:33:11,372 INFO Request: GET /__debug__/render_panel/ | Пользователь: test3
+2025-02-13 12:33:13,763 INFO Request: GET /friends/ | Пользователь: test3
+2025-02-13 12:33:16,176 INFO Request: GET /search_user/ | Пользователь: test3
+2025-02-13 12:33:18,180 INFO Request: GET /__debug__/render_panel/ | Пользователь: test3
+2025-02-13 12:33:29,556 INFO Request: GET /create-chat/ | Пользователь: test3
+2025-02-13 12:33:33,483 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:33:34,477 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:33:34,557 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:33:36,088 INFO Request: GET /__debug__/render_panel/ | Пользователь: test3
+2025-02-13 12:34:14,774 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:34:15,349 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:34:15,408 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:34:28,542 INFO Request: GET / | AnonymousUser
+2025-02-13 12:34:28,558 INFO Request: GET /login/ | AnonymousUser
+2025-02-13 12:34:28,842 INFO Request: GET /favicon.ico | AnonymousUser
+2025-02-13 12:34:28,866 WARNING Not Found: /favicon.ico
+2025-02-13 12:34:31,602 INFO Request: POST /login/ | AnonymousUser
+2025-02-13 12:34:32,332 INFO Request: GET /login/ | AnonymousUser
+2025-02-13 12:34:37,723 INFO Request: POST /login/ | AnonymousUser
+2025-02-13 12:34:38,692 INFO Request: GET /login/ | AnonymousUser
+2025-02-13 12:34:46,764 INFO Request: POST /login/ | AnonymousUser
+2025-02-13 12:34:48,061 INFO Request: GET /chats/ | Пользователь: x1ryrg
+2025-02-13 12:35:00,738 INFO Request: GET /chat/19/ | Пользователь: x1ryrg
+2025-02-13 12:35:01,640 INFO Request: GET /ws/chat/19/ | Пользователь: x1ryrg
+2025-02-13 12:35:01,704 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:35:09,616 INFO Request: POST /chat/19/ | Пользователь: x1ryrg
+2025-02-13 12:35:10,490 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: x1ryrg
+2025-02-13 12:35:13,629 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:35:14,424 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:35:14,518 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:35:26,124 INFO Request: GET /search_user/ | Пользователь: test3
+2025-02-13 12:35:32,040 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:35:32,821 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:35:32,926 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:36:09,895 INFO Request: GET /__debug__/render_panel/ | Пользователь: test3
+2025-02-13 12:37:15,431 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-02-13 12:37:16,359 INFO Watching for file changes with StatReloader
+2025-02-13 12:37:16,988 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:37:17,792 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:37:17,853 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:37:20,109 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-02-13 12:37:21,082 INFO Watching for file changes with StatReloader
+2025-02-13 12:37:21,616 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:37:22,451 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:37:22,512 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:41:01,225 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-02-13 12:41:02,148 INFO Watching for file changes with StatReloader
+2025-02-13 12:41:03,309 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:41:03,624 ERROR Internal Server Error: /chat/19/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 272, in get
+    context = GroupChatView.get_group_context(chat_id)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 267, in get_group_context
+    'title': serializer.data['group_name'],
+             ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2025-02-13 12:42:12,328 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-02-13 12:42:13,180 INFO Watching for file changes with StatReloader
+2025-02-13 12:43:14,974 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-02-13 12:43:15,816 INFO Watching for file changes with StatReloader
+2025-02-13 12:43:16,299 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:43:16,563 ERROR Internal Server Error: /chat/19/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 272, in get
+    context = GroupChatView.get_group_context(chat_id)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 267, in get_group_context
+    'title': serializer.data[''],
+             ~~~~~~~~~~~~~~~^^^^
+TypeError: list indices must be integers or slices, not str
+2025-02-13 12:43:17,248 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:43:17,414 ERROR Internal Server Error: /chat/19/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 272, in get
+    context = GroupChatView.get_group_context(chat_id)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 267, in get_group_context
+    'title': serializer.data[''],
+             ~~~~~~~~~~~~~~~^^^^
+TypeError: list indices must be integers or slices, not str
+2025-02-13 12:43:28,760 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:43:29,027 ERROR Internal Server Error: /chat/19/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 272, in get
+    context = GroupChatView.get_group_context(chat_id)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 267, in get_group_context
+    'title': ChatGroupSerializer(chat).data,
+             ^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2025-02-13 12:43:29,169 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-02-13 12:43:29,982 INFO Watching for file changes with StatReloader
+2025-02-13 12:43:31,493 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:43:31,805 ERROR Internal Server Error: /chat/19/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 274, in get
+    if request.user not in context['chat'].group_users.all():
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ReturnDict' object has no attribute 'group_users'
+2025-02-13 12:44:02,202 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-02-13 12:44:03,328 INFO Watching for file changes with StatReloader
+2025-02-13 12:44:05,800 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:44:06,686 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:44:06,748 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:45:35,685 INFO Request: GET / | Пользователь: test3
+2025-02-13 12:45:35,777 INFO Request: GET /chats/ | Пользователь: test3
+2025-02-13 12:45:39,137 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:45:39,750 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:45:39,810 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:50:27,247 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-02-13 12:50:28,169 INFO Watching for file changes with StatReloader
+2025-02-13 12:50:30,795 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:50:31,576 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:50:31,739 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:50:31,914 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:50:32,634 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:50:32,688 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:50:32,702 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:50:33,472 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:50:33,585 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:50:35,749 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-02-13 12:50:37,006 INFO Watching for file changes with StatReloader
+2025-02-13 12:51:37,373 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-02-13 12:51:38,189 INFO Watching for file changes with StatReloader
+2025-02-13 12:51:41,773 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-02-13 12:51:42,604 INFO Watching for file changes with StatReloader
+2025-02-13 12:51:54,739 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-02-13 12:51:55,535 INFO Watching for file changes with StatReloader
+2025-02-13 12:51:58,547 INFO Request: GET / | Пользователь: test3
+2025-02-13 12:51:58,822 INFO Request: GET /chats/ | Пользователь: test3
+2025-02-13 12:51:59,832 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:52:00,446 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:52:00,513 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:52:01,524 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:52:02,124 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:52:02,289 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:52:02,347 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:52:02,915 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:52:02,980 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:52:08,042 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-02-13 12:52:08,951 INFO Watching for file changes with StatReloader
+2025-02-13 12:52:29,856 INFO D:\python\Chat_Django\ChatAPI\serializers.py changed, reloading.
+2025-02-13 12:52:30,689 INFO Watching for file changes with StatReloader
+2025-02-13 12:52:31,376 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:52:31,944 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:52:32,011 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:52:32,572 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:52:32,888 INFO Request: GET /favicon.ico | Пользователь: test3
+2025-02-13 12:52:32,953 WARNING Not Found: /favicon.ico
+2025-02-13 12:52:33,183 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:52:33,241 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:52:35,714 INFO Request: GET /incoming_friend_requests/ | Пользователь: test3
+2025-02-13 12:52:37,030 INFO Request: GET /friends/ | Пользователь: test3
+2025-02-13 12:52:38,350 INFO Request: GET /search_user/ | Пользователь: test3
+2025-02-13 12:52:40,939 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:52:41,569 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:52:41,667 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:52:43,349 INFO Request: GET /chat/20/ | Пользователь: test3
+2025-02-13 12:52:43,870 INFO Request: GET /ws/chat/20/ | Пользователь: test3
+2025-02-13 12:52:44,050 WARNING Not Found: /ws/chat/20/
+2025-02-13 12:52:46,421 INFO Request: GET /direct/1/ | Пользователь: test3
+2025-02-13 12:52:50,306 INFO Request: POST /direct/1/ | Пользователь: test3
+2025-02-13 12:52:50,757 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: test3
+2025-02-13 12:52:54,450 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:52:54,887 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:52:54,965 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:52:55,110 INFO Request: GET /__debug__/render_panel/ | Пользователь: test3
+2025-02-13 12:53:10,568 INFO D:\python\Chat_Django\ChatAPI\serializers.py changed, reloading.
+2025-02-13 12:53:11,366 INFO Watching for file changes with StatReloader
+2025-02-13 12:53:17,051 INFO Request: GET / | Пользователь: test3
+2025-02-13 12:53:17,235 INFO Request: GET /chats/ | Пользователь: test3
+2025-02-13 12:53:18,336 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:53:18,780 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:53:18,839 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:53:57,868 INFO D:\python\Chat_Django\ChatAPI\serializers.py changed, reloading.
+2025-02-13 12:53:58,814 INFO Watching for file changes with StatReloader
+2025-02-13 12:53:59,285 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:53:59,819 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:53:59,887 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:54:00,110 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:54:00,492 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:54:00,565 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:54:00,842 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:54:01,225 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:54:01,295 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:54:01,361 INFO Request: GET /chat/19/ | Пользователь: test3
+2025-02-13 12:54:01,749 INFO Request: GET /ws/chat/19/ | Пользователь: test3
+2025-02-13 12:54:01,814 WARNING Not Found: /ws/chat/19/
+2025-02-13 12:54:02,184 INFO Request: GET /__debug__/render_panel/ | Пользователь: test3
+2025-02-13 12:54:05,138 INFO Request: POST /chat/19/ | Пользователь: test3
+2025-02-13 12:54:05,550 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: test3
+2025-02-13 12:54:17,516 INFO Request: GET /chat/20/ | Пользователь: test3
+2025-02-13 12:54:17,932 INFO Request: GET /ws/chat/20/ | Пользователь: test3
+2025-02-13 12:54:17,988 WARNING Not Found: /ws/chat/20/
+2025-02-13 12:54:20,632 INFO Request: GET /__debug__/render_panel/ | Пользователь: test3
+2025-02-13 12:54:22,585 INFO Request: GET /chats/ | Пользователь: test3
+2025-02-13 12:54:25,690 INFO Request: GET /__debug__/render_panel/ | Пользователь: test3
+2025-02-13 13:56:12,515 INFO Watching for file changes with StatReloader
+2025-02-13 13:56:14,527 INFO Request: GET / | Пользователь: test3
+2025-02-13 13:56:14,751 INFO Request: GET /chats/ | Пользователь: test3
+2025-02-13 13:56:22,482 INFO Request: GET /admin/ | Пользователь: test3
+2025-02-13 13:56:22,556 INFO Request: GET /admin/login/ | Пользователь: test3
+2025-02-13 13:56:25,972 INFO Request: POST /admin/login/ | Пользователь: test3
+2025-02-13 13:56:26,915 INFO Request: GET /admin/ | Пользователь: root
+2025-02-13 13:56:30,623 INFO Request: GET /admin/ChatAPI/chatgroup/ | Пользователь: root
+2025-02-13 13:56:30,925 INFO Request: GET /admin/jsi18n/ | Пользователь: root
+2025-02-13 13:56:34,671 INFO Request: POST /admin/ChatAPI/chatgroup/ | Пользователь: root
+2025-02-13 13:56:37,582 INFO Request: POST /admin/ChatAPI/chatgroup/ | Пользователь: root
+2025-02-13 13:56:37,790 INFO Request: GET /admin/ChatAPI/chatgroup/ | Пользователь: root
+2025-02-13 13:56:38,011 INFO Request: GET /admin/jsi18n/ | Пользователь: root
+2025-02-13 13:56:41,046 INFO Request: GET /admin/ChatAPI/chatgroup/ | Пользователь: root
+2025-02-13 13:56:42,726 INFO Request: GET /admin/ChatAPI/groupmessage/ | Пользователь: root
+2025-02-13 13:56:42,861 INFO Request: GET /admin/jsi18n/ | Пользователь: root
+2025-02-13 13:56:43,933 INFO Request: GET /admin/ChatAPI/directmessage/ | Пользователь: root
+2025-02-13 13:56:44,194 INFO Request: GET /admin/jsi18n/ | Пользователь: root
+2025-02-13 13:56:49,549 INFO Request: POST /admin/ChatAPI/directmessage/ | Пользователь: root
+2025-02-13 13:56:50,443 INFO Request: POST /admin/ChatAPI/directmessage/ | Пользователь: root
+2025-02-13 13:56:50,552 INFO Request: GET /admin/ChatAPI/directmessage/ | Пользователь: root
+2025-02-13 13:56:50,783 INFO Request: GET /admin/jsi18n/ | Пользователь: root
+2025-02-13 13:56:51,700 INFO Request: GET /admin/ChatAPI/user/ | Пользователь: root
+2025-02-13 13:56:51,817 INFO Request: GET /admin/jsi18n/ | Пользователь: root
+2025-02-13 13:56:53,703 INFO Request: GET /admin/account/emailaddress/ | Пользователь: root
+2025-02-13 13:56:53,858 INFO Request: GET /admin/jsi18n/ | Пользователь: root
+2025-02-13 13:56:57,088 INFO Request: GET /admin/ | Пользователь: root
+2025-02-13 14:02:35,355 INFO Watching for file changes with StatReloader
+2025-02-13 14:02:36,791 INFO Request: GET / | Пользователь: root
+2025-02-13 14:02:36,995 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:02:38,485 INFO Request: GET /direct/3/ | Пользователь: root
+2025-02-13 14:02:40,189 INFO Request: GET /direct/5/ | Пользователь: root
+2025-02-13 14:02:45,479 INFO Request: GET /create-chat/ | Пользователь: root
+2025-02-13 14:02:49,655 INFO Request: POST /create-chat/ | Пользователь: root
+2025-02-13 14:02:49,788 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:02:51,038 INFO Request: GET /chat/29/ | Пользователь: root
+2025-02-13 14:02:51,513 INFO Request: GET /ws/chat/29/ | Пользователь: root
+2025-02-13 14:02:51,678 WARNING Not Found: /ws/chat/29/
+2025-02-13 14:02:53,993 INFO Request: GET /chat/29/peer/ | Пользователь: root
+2025-02-13 14:02:59,662 INFO Request: POST /chat/29/ | Пользователь: root
+2025-02-13 14:02:59,941 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: root
+2025-02-13 14:03:00,707 INFO Request: GET /chat/29/peer/ | Пользователь: root
+2025-02-13 14:03:02,449 INFO Request: GET /chat/29/peer/add_user/ | Пользователь: root
+2025-02-13 14:03:09,053 INFO Request: GET /logout/ | Пользователь: root
+2025-02-13 14:03:09,131 INFO Request: GET /login/ | AnonymousUser
+2025-02-13 14:03:13,655 INFO Request: POST /login/ | AnonymousUser
+2025-02-13 14:03:15,135 INFO Request: GET /chats/ | Пользователь: x1ryrg
+2025-02-13 14:03:16,606 INFO Request: GET /chat/29/ | Пользователь: x1ryrg
+2025-02-13 14:03:17,009 INFO Request: GET /ws/chat/29/ | Пользователь: x1ryrg
+2025-02-13 14:03:17,076 WARNING Not Found: /ws/chat/29/
+2025-02-13 14:03:21,872 INFO Request: POST /chat/29/ | Пользователь: x1ryrg
+2025-02-13 14:03:22,175 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: x1ryrg
+2025-02-13 14:03:25,980 INFO Request: GET /direct/1/ | Пользователь: x1ryrg
+2025-02-13 14:03:35,807 INFO Request: POST /direct/1/ | Пользователь: x1ryrg
+2025-02-13 14:03:36,106 ERROR Internal Server Error: /direct/1/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 360, in post
+    context = DirectView.get_direct_context(user_id, request.user)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 339, in get_direct_context
+    'serializer': serializer.data,
+                  ^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 795, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 523, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 384, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 1103, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 1249, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 1367, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `time_sent` is not valid for model `DirectMessage` in `ChatAPI.serializers.DirectMessageSerializer`.
+2025-02-13 14:03:36,417 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: x1ryrg
+2025-02-13 14:03:38,258 INFO Request: POST /direct/1/ | Пользователь: x1ryrg
+2025-02-13 14:03:38,382 ERROR Internal Server Error: /direct/1/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 360, in post
+    context = DirectView.get_direct_context(user_id, request.user)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 339, in get_direct_context
+    'serializer': serializer.data,
+                  ^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 795, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 523, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 384, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 1103, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 1249, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 1367, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `time_sent` is not valid for model `DirectMessage` in `ChatAPI.serializers.DirectMessageSerializer`.
+2025-02-13 14:03:38,660 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: x1ryrg
+2025-02-13 14:03:41,070 INFO Request: GET /direct/1/ | Пользователь: x1ryrg
+2025-02-13 14:03:41,152 ERROR Internal Server Error: /direct/1/
+Traceback (most recent call last):
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 346, in get
+    context = DirectView.get_direct_context(user_id, request.user)
+  File "D:\python\Chat_Django\ChatAPI\views.py", line 339, in get_direct_context
+    'serializer': serializer.data,
+                  ^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 795, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 714, in to_representation
+    self.child.to_representation(item) for item in iterable
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 523, in to_representation
+    for field in fields:
+                 ^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 384, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ~~~~~~~~~^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+                      ~~~~~~~~~~~~~~~^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 1103, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ~~~~~~~~~~~~~~~~^
+        source, info, model, depth
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 1249, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python\Chat_Django\.venv\Lib\site-packages\rest_framework\serializers.py", line 1367, in build_unknown_field
+    raise ImproperlyConfigured(
+    ...<2 lines>...
+    )
+django.core.exceptions.ImproperlyConfigured: Field name `time_sent` is not valid for model `DirectMessage` in `ChatAPI.serializers.DirectMessageSerializer`.
+2025-02-13 14:03:57,476 INFO D:\python\Chat_Django\ChatAPI\serializers.py changed, reloading.
+2025-02-13 14:03:58,437 INFO Watching for file changes with StatReloader
+2025-02-13 14:04:01,285 INFO Request: GET /direct/1/ | Пользователь: x1ryrg
+2025-02-13 14:04:03,059 INFO Request: GET /direct/1/ | Пользователь: x1ryrg
+2025-02-13 14:04:08,038 INFO Request: POST /direct/1/ | Пользователь: x1ryrg
+2025-02-13 14:04:08,344 INFO Request: GET /__debug__/history_sidebar/ | Пользователь: x1ryrg
+2025-02-13 14:04:10,359 INFO Request: GET /logout/ | Пользователь: x1ryrg
+2025-02-13 14:04:10,429 INFO Request: GET /login/ | AnonymousUser
+2025-02-13 14:04:12,013 INFO Request: POST /login/ | AnonymousUser
+2025-02-13 14:04:13,579 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:04:15,253 INFO Request: GET /chat/29/ | Пользователь: root
+2025-02-13 14:04:15,678 INFO Request: GET /ws/chat/29/ | Пользователь: root
+2025-02-13 14:04:15,748 WARNING Not Found: /ws/chat/29/
+2025-02-13 14:04:17,168 INFO Request: GET /direct/3/ | Пользователь: root
+2025-02-13 14:04:19,514 INFO Request: GET /direct/5/ | Пользователь: root
+2025-02-13 14:06:15,895 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-02-13 14:06:16,771 INFO Watching for file changes with StatReloader
+2025-02-13 14:06:17,341 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:06:17,461 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:06:18,142 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:06:22,126 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:06:22,608 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-02-13 14:06:23,365 INFO Watching for file changes with StatReloader
+2025-02-13 14:06:24,070 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:06:30,285 INFO D:\python\Chat_Django\ChatAPI\views.py changed, reloading.
+2025-02-13 14:06:31,148 INFO Watching for file changes with StatReloader
+2025-02-13 14:06:34,141 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:06:37,879 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:06:39,305 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:06:40,851 INFO Request: GET /incoming_friend_requests/ | Пользователь: root
+2025-02-13 14:06:44,409 INFO Request: GET /friends/ | Пользователь: root
+2025-02-13 14:06:49,643 INFO Request: GET /__debug__/render_panel/ | Пользователь: root
+2025-02-13 14:06:57,102 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:06:57,698 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:07:02,031 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:07:02,686 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:07:45,259 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:07:46,389 INFO Request: GET /__debug__/render_panel/ | Пользователь: root
+2025-02-13 14:07:51,718 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:07:57,765 INFO Request: GET /direct/3/ | Пользователь: root
+2025-02-13 14:08:00,397 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:08:01,145 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 14:08:03,299 INFO Request: GET /__debug__/render_panel/ | Пользователь: root
+2025-02-13 14:08:07,350 INFO Request: POST /__debug__/sql_explain/ | Пользователь: root
+2025-02-13 14:08:11,031 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 15:47:16,228 INFO Watching for file changes with StatReloader
+2025-02-13 15:47:53,395 INFO Request: GET / | Пользователь: root
+2025-02-13 15:47:53,902 INFO Request: GET /chats/ | Пользователь: root
+2025-02-13 15:47:54,918 INFO Request: GET /incoming_friend_requests/ | Пользователь: root
+2025-02-13 15:47:55,949 INFO Request: POST /send_email/ | Пользователь: root
+2025-02-13 15:47:56,136 INFO celery send_message success 
+2025-02-13 15:47:56,179 INFO Request: GET /chats/ | Пользователь: root

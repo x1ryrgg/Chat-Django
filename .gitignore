@@ -8,7 +8,6 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-.env
 .gitignore
 media
 build/
@@ -55,6 +54,7 @@ coverage.xml
 cover/
 
 # Translations
+
 *.mo
 *.pot
 
@@ -125,6 +125,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+.env
 .venv
 env/
 venv/

@@ -2,8 +2,9 @@
     {% for message in serializer %}
         <li>
             <div class="{% if message.sender.id == request.user.id %}user-message{% else %}other-message{% endif %}">
-                <strong>{{ message.sender.username }}</strong> ({{ message.sender.id }} vs {{ request.user.id }}):
-                {{ message.body }}
+                <strong>{{ message.sender.username }}</strong>
+
+                <div>{{ message.body }}</div>
             </div>
         </li>
     {% endfor %}

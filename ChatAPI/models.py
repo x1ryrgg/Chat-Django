@@ -34,11 +34,18 @@ class ChatGroup(models.Model):
         if is_new and self.creator:
             self.group_admin_users.add(self.creator)
 
-class GroupMessage(models.Model):
+
+class Message(models.Model):
+    sender = models.ForeignKey(User, on_delete=models.CASCADE)
+    body = models.CharField(max_length=324)
+    date_sent = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        abstract = True
+
+
+class GroupMessage(Message):
     group = ForeignKey(ChatGroup, on_delete=models.CASCADE, )
-    sender = models.ForeignKey(User, on_delete=models.CASCADE, )
-    body = models.CharField(max_length=324, verbose_name="Сообщение",)
-    date_sent = models.DateTimeField(auto_now_add=True, )
 
     class Meta:
         verbose_name = "Группа_сообщения"
@@ -49,16 +56,14 @@ class GroupMessage(models.Model):
         return f"Название группы: {self.group.group_name} | Пользователь: {self.sender} | Сообщение: {self.body} '\n' "
 
 
-class DirectMessage(models.Model):
-    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name="sender")
+class DirectMessage(Message):
     receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name="receiver")
-    body = models.CharField(max_length=324)
-    time_sent = models.DateTimeField(auto_now_add=True)
+
 
     class Meta:
         verbose_name = 'Личное_сообщения'
         verbose_name_plural = 'Личные_сообщения'
-        ordering = ["-time_sent"]
+        ordering = ["date_sent"]
 
     def __str__(self):
         return f"Пользователь_1: {self.sender} | Пользователь_2: {self.receiver} | Сообщение: {self.body} '\n' "

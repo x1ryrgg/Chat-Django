@@ -8,7 +8,7 @@
     <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
     <title>{{ title }}</title>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         var chatId = {{ chat.id }};
         var chatSocket = new WebSocket(
             (window.location.protocol === "https:" ? "wss://" : "ws://") +
@@ -16,19 +16,25 @@
             '/ws/chat/' + chatId + '/'
         );
 
-        chatSocket.onmessage = function(e) {
+
+        // Обработка входящих сообщений через WebSocket
+        chatSocket.onmessage = function (e) {
             var data = JSON.parse(e.data);
             var messageItem = document.createElement('li');
             var messageClass = data.sender_id == {{ request.user.id }} ? 'user-message' : 'other-message';
             messageItem.innerHTML = `<div class="${messageClass}"><strong>${data.sender}</strong>: ${data.message} <em>(${data.date_sent})</em></div>`;
             document.getElementById('chat-messages').appendChild(messageItem);
+
+            // Прокручиваем чат вниз после получения нового сообщения
         };
 
-        chatSocket.onclose = function(e) {
+        // Обработка закрытия WebSocket
+        chatSocket.onclose = function (e) {
             console.error('Chat socket closed unexpectedly');
         };
 
-        document.querySelector('#chat-message-submit').onclick = function(e) {
+        // Отправка сообщений через WebSocket
+        document.querySelector('#chat-message-submit').onclick = function (e) {
             var messageInputDom = document.querySelector('#chat-message-input');
             var message = messageInputDom.value;
             chatSocket.send(JSON.stringify({
@@ -41,11 +47,13 @@
 </script>
 </head>
 <body>
-    <h1><a href='{% url 'peer' chat_id %}'>{{ chat.group_name }}</a></h1>
+    <h1><a href='{% url 'peer' chat.id %}'>{{ chat.group_name }}</a></h1>
     <div id="chat-window">
         {% include 'ChatAPI/messages.html' %}
     </div>
-    <form method="post" hx-post="{% url 'chat' chat_id=chat_id %}" hx-target="#chat-window" hx-swap="innerHTML">
+
+    <!-- Форма отправки сообщений -->
+    <form method="post" hx-post="{% url 'chat' chat.id %}" hx-target="#chat-window" hx-swap="innerHTML">
         {% csrf_token %}
         {% for f in form %}
             <div>
@@ -58,26 +66,20 @@
         {% endfor %}
         <p><button type="submit">Отправить сообщение</button></p>
     </form>
+
+    <!-- Скрипт для очистки формы после отправки -->
     <script>
-        // Обновление после успешного запроса
-        let chatWindow = document.getElementById('chat-window');
-        chatWindow.addEventListener('htmx:afterSwap', (event) => {
-            // Прокрутка вниз
-            chatWindow.scrollTop = chatWindow.scrollHeight;
+        document.addEventListener("DOMContentLoaded", function () {
+            // Слушаем событие htmx:afterSwap, которое срабатывает после обновления элемента
+            document.body.addEventListener('htmx:afterSwap', function (event) {
+                // Находим форму по её селектору
+                var form = document.querySelector('form[hx-post]');
+                if (form) {
+                    // Очищаем поле ввода сообщения
+                    form.reset();
+                }
+            });
         });
     </script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Слушаем событие htmx:afterSwap, которое срабатывает после обновления элемента
-        document.body.addEventListener('htmx:afterSwap', function (event) {
-            // Находим форму по её селектору
-            var form = document.querySelector('form[hx-post]');
-            if (form) {
-                // Очищаем поле ввода сообщения
-                form.reset();
-            }
-        });
-    });
-</script>
 </body>
 </html>
