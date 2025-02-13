@@ -2,7 +2,8 @@ import logging
 import json
 
 from django.contrib.auth import authenticate, login, logout, get_user_model
-from django.db.models import Q
+from django.core.cache import cache
+from django.db.models import Q, Count
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
@@ -15,14 +16,17 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
+from .tasks import *
 
 from .models import *
 from .serializers import *
 from .forms import *
 from .filters import *
 from .permissions import *
+from friend_requests.models import *
 
 User = get_user_model()
+
 
 def index(request):
     if request.user.is_anonymous:
@@ -40,18 +44,19 @@ def show_errors(request, form) -> None:
             messages.warning(request, _(message))
 
 
-
 class LoginView(APIView):
     @staticmethod
     def get(request):
         if request.user.is_anonymous:
-            form = LoginForm()
-            return render(request, 'ChatAPI/login.html', context={'title': 'Авторизация', 'form': form})
-        messages.info(request, _("Вы уже вошли в аккаунт."))
+            return render(request, 'ChatAPI/login.html', context={'title': 'Авторизация',
+                                                                  'form': LoginForm()})
         return redirect('chats')
 
     @staticmethod
     def post(request):
+        if request.user.is_authenticated:
+            return redirect('chats')
+
         if request.user.is_anonymous:
             form = LoginForm(data=request.POST)
             if form.is_valid():
@@ -73,11 +78,13 @@ class SignupView(APIView):
         if request.user.is_anonymous:
             form = SignUpForm()
             return render(request, 'ChatAPI/signup.html', context={'title': 'Регистрация', 'form': form})
-        messages.info(request, _("Вы уже зарегестрировали аккаунт."))
         return redirect('chats')
 
     @staticmethod
     def post(request):
+        if request.user.is_authenticated:
+            return redirect('chats')
+
         form = SignUpForm(data=request.data)
         if form.is_valid():
             username = form.cleaned_data['username']
@@ -104,19 +111,38 @@ class LogoutView(APIView):
 
 
 class ChatsView(APIView):
-    permission_classes = [IsAuthenticated, ]
+    permission_classes = [IsAuthenticated]
+
     @staticmethod
     def get(request):
         user = request.user
 
-        query_filter = UserNameFilter(request.GET, queryset=request.user.friends.all())
-        user_serializer = UserSerializer(query_filter.qs, many=True)
+        # Кешируем количество входящих запросов на дружбу
+        count_requests_cache_key = f'friend_request_count_{user.username}'
+        count_requests = cache.get(count_requests_cache_key)
+        if count_requests is None:
+            count_requests = FriendRequest.objects.filter(to_user=user).count()
+            cache.set(count_requests_cache_key, count_requests, 60)  # Кешируем на 60 секунд
 
-        chatgroup_query = ChatGroup.objects.filter(group_users=user)
-        serializer = ChatGroupSerializer(chatgroup_query, many=True)
+        # Кешируем список чатов пользователя
+        chatgroup_cache_key = f'chatgroup_data_{user.username}'
+        chatgroup_data = cache.get(chatgroup_cache_key)
+        if not chatgroup_data:
+            chatgroup_query = ChatGroup.objects.filter(group_users=user).prefetch_related('group_users', 'group_admin_users')
+            chatgroup_data = ChatGroupSerializer(chatgroup_query, many=True).data
+            cache.set(chatgroup_cache_key, chatgroup_data, 60)  # Кешируем на 60 секунд
 
-        context = {'serializer': serializer.data, 'filter': query_filter,
-                    'user_serializer': user_serializer.data, 'title': 'Все чаты', 'user': user}
+        filter = UserNameFilter(request.GET, queryset=user.friends.all())
+        filter_serializer = UserSerializer(filter.qs, many=True).data
+
+        context = {
+            'user': UserSerializer(user).data,
+            'serializer': chatgroup_data,
+            'filter': filter,
+            'filter_serializer': filter_serializer,
+            'title': 'Все чаты',
+            'count_requests': count_requests,
+        }
 
         return render(request, 'chatAPI/chats.html', context)
 
@@ -146,6 +172,20 @@ class GroupChatCreateView(APIView):
 
         return render(request, 'ChatAPI/group-create.html', context={'form': form,
                                                                       'title': 'Создание группового чата'})
+
+
+class DeleteGroupChat(APIView):
+    permission_classes = [IsAuthenticated, ]
+
+    @staticmethod
+    def post(request, chat_id):
+        chat = get_object_or_404(ChatGroup, id=chat_id)
+        if chat.creator == request.user:
+            chat.delete()
+            return redirect('chats')
+
+        messages.error(request, _("Только создатель чата можешь удалить его."))
+        return redirect(reverse_lazy('peer', kwargs={'chat_id': chat_id}))
 
 
 class LeaveGroupChat(APIView):

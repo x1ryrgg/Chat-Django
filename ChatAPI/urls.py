@@ -18,6 +18,7 @@ urlpatterns = [
     path('chat/<int:chat_id>/leave/', LeaveGroupChat.as_view(), name='leave'),
     path('chat/<int:chat_id>/', GroupChatView.as_view(), name='chat'),
     path('chat/<int:chat_id>/peer/', PeerGroupChatView.as_view(), name='peer'),
+    path('chat/<int:chat_id>/peer/delete_chat/', DeleteGroupChat.as_view(), name='delete_chat'),
     path('chat/<int:chat_id>/peer/add_user/', AddGroupUser.as_view(), name='add_user'),
     path('chat/<int:chat_id>/peer/remove_user/<int:user_id>/', RemoveGroupUser.as_view(), name='remove_user'),
     path('chat/<int:chat_id>/peer/add_admin/<int:user_id>/', AddGroupAdmin.as_view(), name='add_admin'),

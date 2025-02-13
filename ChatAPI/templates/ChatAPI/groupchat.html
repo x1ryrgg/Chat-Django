@@ -66,5 +66,18 @@
             chatWindow.scrollTop = chatWindow.scrollHeight;
         });
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Слушаем событие htmx:afterSwap, которое срабатывает после обновления элемента
+        document.body.addEventListener('htmx:afterSwap', function (event) {
+            // Находим форму по её селектору
+            var form = document.querySelector('form[hx-post]');
+            if (form) {
+                // Очищаем поле ввода сообщения
+                form.reset();
+            }
+        });
+    });
+</script>
 </body>
 </html>

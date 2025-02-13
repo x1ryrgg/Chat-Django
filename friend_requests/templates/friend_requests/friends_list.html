@@ -10,10 +10,16 @@
         <ul>
             {% for friend in friends %}
                 <li>{{ friend.username }}</li>
+            <form method="post" action="{% url 'friend_requests:delete_friend' friend.id %}" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" onclick="return confirm('Вы уверены, что хотите удалить друга??')">Удалить из друзей</button>
+            </form>
+
             {% endfor %}
         </ul>
     {% else %}
         <p>У вас пока нет друзей.</p>
     {% endif %}
+
 </body>
 </html>

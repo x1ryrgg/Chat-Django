@@ -29,6 +29,15 @@
     {% endfor %}
     <hr>
 
+    {% if request.user == chat.creator %}
+        <form method="post" action="{% url 'delete_chat' chat.id %}" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" onclick="return confirm('Вы уверены, что хотите удалить чат?')">Удалить чат</button>
+        </form>
+    {% endif %}
+
+    <hr>
+
 
     <div>
         <h2>Пользователи чата:</h2>

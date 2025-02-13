@@ -19,5 +19,10 @@
     {% else %}
         <p>У вас нет входящих запросов на добавление в друзья.</p>
     {% endif %}
+
+    <form method="post" action="{% url 'friend_requests:send_hello' %}">
+        {% csrf_token %}
+        <button type="submit">Отправить письмо</button>
+    </form>
 </body>
 </html>

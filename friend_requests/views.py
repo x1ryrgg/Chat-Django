@@ -1,8 +1,16 @@
+import logging
+
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.translation import gettext_lazy as _
 from django.urls import reverse_lazy
+
+from ChatAPI.tasks import send_message, add
+from Chat_Django import settings
+from Chat_Django.settings import DEFAULT_FROM_EMAIL
 from .models import *
 from ChatAPI.models import *
 from ChatAPI.serializers import UserSerializer
@@ -10,11 +18,12 @@ from friend_requests.filters import *
 from .serializers import *
 
 
+logger = logging.getLogger(__name__)
+
 @login_required
 def search_users_view(request):
     friend_ids = request.user.friends.values_list('id', flat=True)  # Получаем ID друзей
     queryset = User.objects.exclude(id__in=friend_ids).exclude(id=request.user.id)
-
     query_filter = UserNameFilter(request.GET, queryset=queryset)
 
     users_with_status = []
@@ -84,3 +93,22 @@ def friends_list(request):
         'friends': Serializer,
         'title': 'Список друзей'
     })
+
+
+@login_required
+def delete_friend(request, friend_id):
+    user = request.user
+    friend = get_object_or_404(User, id=friend_id)
+    user.friends.remove(friend)
+    return redirect('friend_requests:friends')
+
+
+logger = logging.getLogger(__name__)
+@login_required
+def send_hello_email(request):
+    if request.method == 'POST':
+        send_message.delay(request.user.username, request.user.email)
+        logger.info('celery %s success ', send_message.__name__)
+        return redirect('chats')
+
+
