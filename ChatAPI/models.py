@@ -38,6 +38,7 @@ class ChatGroup(models.Model):
 class Message(models.Model):
     sender = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.CharField(max_length=324)
+    reply_to = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name="replies")
     date_sent = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -53,12 +54,11 @@ class GroupMessage(Message):
         ordering = ["date_sent"]
 
     def __str__(self):
-        return f"Название группы: {self.group.group_name} | Пользователь: {self.sender} | Сообщение: {self.body} '\n' "
+        return f"Название группы: {self.group.group_name} | Пользователь: {self.sender.username} | Сообщение: {self.body[:50]} '\n' "
 
 
 class DirectMessage(Message):
     receiver = models.ForeignKey(User, on_delete=models.CASCADE, related_name="receiver")
-
 
     class Meta:
         verbose_name = 'Личное_сообщения'

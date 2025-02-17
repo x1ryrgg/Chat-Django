@@ -17,10 +17,11 @@ class ChatGroupSerializer(serializers.ModelSerializer):
 
 class GroupMessageSerializer(serializers.ModelSerializer):
     sender = UserSerializer(read_only=True)
+    reply_to = serializers.PrimaryKeyRelatedField(queryset=GroupMessage.objects.all(), allow_null=True, required=False)
 
     class Meta:
         model = GroupMessage
-        fields = ('group', 'sender', 'body', 'date_sent')
+        fields = ('id', 'group', 'sender', 'body', 'reply_to', 'date_sent')
 
 
 class DirectMessageSerializer(serializers.ModelSerializer):

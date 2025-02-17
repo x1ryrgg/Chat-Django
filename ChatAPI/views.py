@@ -4,7 +4,7 @@ import json
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.core.cache import cache
 from django.db.models import Q, Count
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
@@ -26,6 +26,8 @@ from .permissions import *
 from friend_requests.models import *
 
 User = get_user_model()
+
+logger = logging.getLogger(__name__)
 
 
 def index(request):
@@ -117,14 +119,12 @@ class ChatsView(APIView):
     def get(request):
         user = request.user
 
-        # Кешируем количество входящих запросов на дружбу
         count_requests_cache_key = f'friend_request_count_{user.username}'
         count_requests = cache.get(count_requests_cache_key)
         if count_requests is None:
             count_requests = FriendRequest.objects.filter(to_user=user).count()
             cache.set(count_requests_cache_key, count_requests, 60)  # Кешируем на 60 секунд
 
-        # Кешируем список чатов пользователя
         chatgroup_cache_key = f'chatgroup_data_{user.username}'
         chatgroup_data = cache.get(chatgroup_cache_key)
         if not chatgroup_data:
@@ -251,6 +251,21 @@ class RemoveGroupUser(APIView):
         return redirect(reverse_lazy('peer', kwargs={'chat_id': chat_id}))
 
 
+class DeleteMessage(APIView):
+    permission_classes = [IsAuthenticated]
+    @staticmethod
+    def post(request, message_id):
+        message = get_object_or_404(GroupMessage, id=message_id)
+
+        if message.sender != request.user:
+            messages.error(request, "Вы мотеже удалять только свои сообщения")
+            return redirect(reverse_lazy('chat', kwargs={'chat_id': message.group.id}))
+
+        message.delete()
+        messages.success(request, 'Сообщение успешно удалено.')
+        return redirect(reverse_lazy('chat', kwargs={'chat_id': message.group.id}))
+
+
 class GroupChatView(APIView):
     permission_classes = [IsAuthenticated, ]
     @staticmethod
@@ -285,6 +300,11 @@ class GroupChatView(APIView):
             message = form.save(commit=False)
             message.sender = request.user
             message.group = get_object_or_404(ChatGroup, id=chat_id)
+
+            reply_to_id = form.cleaned_data['reply_to']
+            if reply_to_id:
+                message.reply_to = get_object_or_404(GroupMessage, id=reply_to_id)
+
             message.save()
 
             context = GroupChatView.get_group_context(chat_id)

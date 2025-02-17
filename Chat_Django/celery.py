@@ -11,7 +11,7 @@ app.autodiscover_tasks()
 app.conf.beat_schedule = {
     'send_beat_message': {
         'task': 'ChatAPI.tasks.send_beat_message',
-        'schedule': crontab(minute='*/1'),
+        'schedule': crontab(minute='*/5'),
     },
 }
 

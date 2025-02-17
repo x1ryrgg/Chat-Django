@@ -103,7 +103,6 @@ def delete_friend(request, friend_id):
     return redirect('friend_requests:friends')
 
 
-logger = logging.getLogger(__name__)
 @login_required
 def send_hello_email(request):
     if request.method == 'POST':

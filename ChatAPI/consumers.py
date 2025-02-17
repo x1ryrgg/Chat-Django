@@ -12,22 +12,13 @@ class ChatConsumer(AsyncWebsocketConsumer):
         self.chat_id = self.scope['url_route']['kwargs']['chat_id']
         self.room_group_name = f'chat_{self.chat_id}'
 
-        # Проверяем, является ли пользователь участником чата
-        user = self.scope['user']
-        chat = await self.get_chat(self.chat_id)
-        if user not in await self.get_users(chat):
-            return
-
-        # Присоединяемся к группе комнаты
         await self.channel_layer.group_add(
             self.room_group_name,
             self.channel_name
         )
-
         await self.accept()
 
     async def disconnect(self, close_code):
-        # Отключаемся от группы комнаты
         await self.channel_layer.group_discard(
             self.room_group_name,
             self.channel_name
@@ -36,20 +27,25 @@ class ChatConsumer(AsyncWebsocketConsumer):
     async def receive(self, text_data):
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
-        sender = self.scope['user']
+        sender_id = text_data_json['sender_id']
+        reply_to_id = text_data_json.get('reply_to')  # Получаем ID родительского сообщения
 
-        # Сохраняем сообщение в базу данных
-        group_message = await self.save_message(sender, self.chat_id, message)
+        sender = await self.get_user(sender_id)
+        group = await self.get_chat(self.chat_id)
 
-        # Отправляем сообщение всем участникам группы
+        # Сохраняем сообщение
+        new_message = await self.save_message(group, sender, message, reply_to_id)
+
+        # Отправляем сообщение всем участникам чата
         await self.channel_layer.group_send(
             self.room_group_name,
             {
                 'type': 'chat_message',
-                'message': group_message.body,
-                'sender': group_message.sender.username,
-                'date_sent': group_message.date_sent.isoformat(),
-                'sender_id': group_message.sender.id
+                'message': new_message.body,
+                'sender': new_message.sender.username,
+                'date_sent': new_message.date_sent.isoformat(),
+                'sender_id': new_message.sender.id,
+                'reply_to': new_message.reply_to.id if new_message.reply_to else None,
             }
         )
 
@@ -58,28 +54,26 @@ class ChatConsumer(AsyncWebsocketConsumer):
         sender = event['sender']
         date_sent = event['date_sent']
         sender_id = event['sender_id']
+        reply_to_id = event['reply_to']
 
         # Отправляем сообщение клиенту
         await self.send(text_data=json.dumps({
             'message': message,
             'sender': sender,
             'date_sent': date_sent,
-            'sender_id': sender_id
+            'sender_id': sender_id,
+            'reply_to': reply_to_id,
         }))
 
-    @transaction.atomic
-    async def save_message(self, sender, chat_id, message):
-        chat = await self.get_chat(chat_id)
-        return await database_sync_to_async(GroupMessage.objects.create)(
-            group=chat,
-            sender=sender,
-            body=message
-        )
+    @database_sync_to_async
+    def get_user(self, user_id):
+        return User.objects.get(id=user_id)
 
     @database_sync_to_async
     def get_chat(self, chat_id):
         return ChatGroup.objects.get(id=chat_id)
 
     @database_sync_to_async
-    def get_users(self, chat):
-        return list(chat.group_users.all())
+    def save_message(self, group, sender, body, reply_to_id=None):
+        reply_to = GroupMessage.objects.get(id=reply_to_id) if reply_to_id else None
+        return GroupMessage.objects.create(group=group, sender=sender, body=body, reply_to=reply_to)

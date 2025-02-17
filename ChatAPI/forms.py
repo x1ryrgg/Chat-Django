@@ -55,10 +55,15 @@ class UserGroupForm(forms.ModelForm): #для удаления и добавле
 
 class GroupMessageForm(forms.ModelForm):
     body = forms.CharField(widget=forms.TextInput(), label_suffix='')
+    reply_to = forms.ModelChoiceField(
+        queryset=GroupMessage.objects.all(),
+        required=False,
+        widget=forms.HiddenInput()
+    )
 
     class Meta:
         model = GroupMessage
-        fields = ['body']
+        fields = ['body', 'reply_to']
 
 
 class DirectMessageForm(forms.ModelForm):

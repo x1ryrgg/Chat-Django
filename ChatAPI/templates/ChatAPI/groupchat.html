@@ -16,32 +16,39 @@
             '/ws/chat/' + chatId + '/'
         );
 
-
-        // Обработка входящих сообщений через WebSocket
+        // Обработка входящих сообщений
         chatSocket.onmessage = function (e) {
             var data = JSON.parse(e.data);
             var messageItem = document.createElement('li');
             var messageClass = data.sender_id == {{ request.user.id }} ? 'user-message' : 'other-message';
-            messageItem.innerHTML = `<div class="${messageClass}"><strong>${data.sender}</strong>: ${data.message} <em>(${data.date_sent})</em></div>`;
+
+            // Отображаем ответы
+            var replyToText = data.reply_to ? `В ответ на сообщение ${data.reply_to}` : '';
+            messageItem.innerHTML = `
+                <div class="${messageClass}">
+                    <strong>${data.sender}</strong>: ${data.message} <em>(${data.date_sent})</em> ${replyToText}
+                </div>
+            `;
             document.getElementById('chat-messages').appendChild(messageItem);
 
-            // Прокручиваем чат вниз после получения нового сообщения
+            // Прокручиваем чат вниз
+            scrollToBottom();
         };
 
-        // Обработка закрытия WebSocket
-        chatSocket.onclose = function (e) {
-            console.error('Chat socket closed unexpectedly');
-        };
-
-        // Отправка сообщений через WebSocket
+        // Отправка сообщений
         document.querySelector('#chat-message-submit').onclick = function (e) {
             var messageInputDom = document.querySelector('#chat-message-input');
             var message = messageInputDom.value;
+            var replyToInput = document.getElementById('id_reply_to');
+            var replyToId = replyToInput ? replyToInput.value : null;
+
             chatSocket.send(JSON.stringify({
                 'message': message,
-                'sender_id': {{ request.user.id }}
+                'sender_id': {{ request.user.id }},
+                'reply_to': replyToId,
             }));
             messageInputDom.value = '';
+            replyToInput.value = ''; // Очищаем поле reply_to
         };
     });
 </script>
@@ -57,9 +64,10 @@
         {% csrf_token %}
         {% for f in form %}
             <div>
-                <label for="{{ f.id_for_label }}">{{ f.label }}:</label>
+                <label for="{{ f.id_for_label }}"></label>
                 {{ f }}
             </div>
+            <input type="hidden" id="id_reply_to" name="reply_to" value="">
         {% endfor %}
         {% for message in messages %}
             <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>

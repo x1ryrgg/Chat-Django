@@ -28,9 +28,24 @@ def send_beat_message():
     )
 
 
-@shared_task
+@app.task
 def add(x, y):
-    return x + y
+    z = x + y
+    return z
+
+
+@app.task(bind=True, default_retry_delay=5 * 60, max_retries=3)
+def add_retry(self, x, y):
+    try:
+        return x + y
+    except Exception as exc:
+        raise self.retry(exc=exc, countdown=60)
+
+
+"""
+вместо delay, который сразу включает таску можно использовать 
+apply_async, в котором можно указать countdown, через какое время запустить таску
+"""
 
 
 

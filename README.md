@@ -1,9 +1,66 @@
-# Web Chat build on Django
+# Chat on Django
+Chat Application Example
 
-## Discription
+## Main Features:
+- Chat with other users using text messages?
+- Creation of group chats, extensive functionality within the chat?
+- Support full-text search on users, adding friends?
+- Viewing Friend Notifications?
+- Support for executing periodic tasks with Celery and Celery beat?
+- Support for Redis message broker?
+- Changing profile?
 
-The main thing that was implemented was: a system for working with a group chat, as well as a personal chat with users.
+## Installation:
+Clone repos
+```bash 
+git https://github.com/x1ryrgg/Chat-Django.git
+```
 
-## Docker
+Go to workdir `cd Chat_Django`
 
-Docker doesn't work yet, I'll try to fix it in the next patch.
+Install via pip: `pip install -r requirements.txt`
+
+### Configuration
+Most configurations are in `settings.py`, others are in backend configurations.
+
+I have set a lot of `settings` via environment variables (such as `SECRET_KEY`, `DEBUG` and some parts of the email config) and they are NOT pushed to `GitHub`. You can change their config in `settings.py` or create a `.env` file and set the environment variables yourself.
+
+### Docker-compose up до сюда дошел 
+Build and run containers as daemon 
+`docker-compose up --build`
+
+## Run
+
+Modify `chat/settings.py` with database settings, as following:
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'Chat_db',
+        'USER': 'postgres',
+        'PASSWORD': '1234',
+        'HOST': 'db',
+        'PORT': 5432,
+    }
+}
+```
+
+### Create database
+Run the following command in PostgreSQL shell:
+```sql
+craetedb `Chat_db`;
+```
+
+Run the following commands in Terminal:
+```bash
+python manage.py makemigrations
+python manage.py migrate
+python manage.py createcachetable
+```  
+
+### Create super user
+
+Run command in terminal:
+```bash
+python manage.py createsuperuser

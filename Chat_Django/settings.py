@@ -11,23 +11,24 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
-from decouple import config
+from dotenv import load_dotenv
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+load_dotenv()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = os.getenv('DEBUG', 'False').lower() in ['true', 'yes', '1']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 INTERNAL_IPS = [
     '127.0.0.1',
@@ -103,11 +104,11 @@ ASGI_APPLICATION = 'Chat_Django.asgi.application'
 DATABASES = {
     'default': {
            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-           'NAME': config('DB_NAME', 'Chat_db'),
-           'USER': config('DB_USER', 'postgres'),
-           'PASSWORD': config('DB_PASSWORD', '1234'),
-           'HOST': config('DB_HOST', default='localhost'),
-           'PORT': config('DB_PORT', default='5432'),
+           'NAME': os.getenv('DB_NAME', 'Chat_db'),
+           'USER': os.getenv('DB_USER', 'postgres'),
+           'PASSWORD': os.getenv('DB_PASSWORD', '1234'),
+           'HOST': os.getenv('DB_HOST', 'db'),
+           'PORT': os.getenv('DB_PORT', '5432'),
        }
     }
 
@@ -193,10 +194,10 @@ LOGGING = { # для логирования
 """ smtp """
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-EMAIL_HOST = 'smtp.mail.ru'
-EMAIL_PORT = '2525'
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
@@ -206,15 +207,15 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 CACHES = {
     "default": {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": "redis://localhost:6379/",
+        "LOCATION": "redis://localhost:6379/1", # для docker меняю на redis
         "KEY_PREFIX": "imdb",
         "TIMEOUT": 60 * 15,  # in seconds: 60 * 15 (15 minutes)
     }
 }
 
 
-CELERY_BROKER_URL = 'redis://localhost:6379/0'
-CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+CELERY_BROKER_URL = 'redis://localhost:6379/0' # для docker меняем на redis
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0' # too
 CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'
@@ -230,5 +231,7 @@ celery -A Chat_Django worker -l info -P eventlet - команда для инф�
 #celery -A Chat_Django worker -l info -P eventlet
 
 #celery -A Chat_Django beat -l info
+
+#celery -A Chat_Django flower --port=5555
 
 # redis-cli flushall - очистка кеша
