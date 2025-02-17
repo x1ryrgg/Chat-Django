@@ -2,13 +2,13 @@
 Chat Application Example
 
 ## Main Features:
-- Chat with other users using text messages?
-- Creation of group chats, extensive functionality within the chat?
-- Support full-text search on users, adding friends?
-- Viewing Friend Notifications?
-- Support for executing periodic tasks with Celery and Celery beat?
-- Support for Redis message broker?
-- Changing profile?
+- Chat with other users using text messages.
+- Creation of group chats, extensive functionality within the chat.
+- Support full-text search on users, adding friends.
+- Viewing Friend Notifications.
+- Support for executing periodic tasks with Celery and Celery beat.
+- Support for Redis message broker.
+- Changing profile.
 
 ## Installation:
 Clone repos
