@@ -1,5 +1,6 @@
 import datetime
 
+from django.contrib.auth import authenticate
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django import forms
 from .models import *
@@ -11,7 +12,7 @@ class LoginForm(AuthenticationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'password')
+        fields = ('username', 'password', )
 
 
 class SignUpForm(UserCreationForm):

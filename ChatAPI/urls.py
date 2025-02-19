@@ -1,9 +1,15 @@
-from django.urls import path, re_path
+
+from django.urls import path, re_path, include
+from rest_framework import routers
 
 from . import consumers
 from .views import *
 
+router = routers.DefaultRouter()
+router.register(r'', ApiUser, basename='users')
 
+testrouter = routers.DefaultRouter()
+testrouter.register(r'', TestImageView, basename='testimage')
 
 urlpatterns = [
     path('', index, name='index'),
@@ -27,7 +33,8 @@ urlpatterns = [
     path('direct/<int:user_id>/', DirectView.as_view(), name='direct'),
 
 
-    # test JWT
-    path('api/register/', RegisterViewAPI.as_view(), name='register1'),
-    path('api/login/', LoginViewAPI.as_view(), name='login1')
+
+    # test
+    path('api/', include(router.urls)),
+    path('test/', include(testrouter.urls)),
 ]

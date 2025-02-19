@@ -14,6 +14,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
+from rest_framework.viewsets import ModelViewSet
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
 from .tasks import *
@@ -26,8 +27,6 @@ from .permissions import *
 from friend_requests.models import *
 
 User = get_user_model()
-
-logger = logging.getLogger(__name__)
 
 
 def index(request):
@@ -378,7 +377,7 @@ class DirectView(APIView):
             message.save()
 
             context = DirectView.get_direct_context(user_id, request.user)
-            return render(request, 'ChatAPI/messages.html', context)
+            return render(request, 'ChatAPI/direct_messages.html', context)
 
         messages.error(request, _("Ошибка при отправке сообщения."))
         context = DirectView.get_direct_context(user_id, request.user)
@@ -386,18 +385,19 @@ class DirectView(APIView):
         return render(request, 'chatAPI/direct.html', context)
 
 
-class RegisterViewAPI(APIView):
-    def post(self, request):
-        serializer = RegisterSerializer(data=request.data)
-        if serializer.is_valid():
-            user = serializer.save()
-            refresh = RefreshToken.for_user(user)
-            return Response({
-                'refresh': str(refresh),
-                'access': str(refresh.access_token),
-            })
-        return Response(serializer.errors)
+
+class TestImageView(ModelViewSet):
+    queryset = TestImage.objects.all()
+    serializer_class = TestSerializer
 
 
-class LoginViewAPI(TokenObtainPairView):
-    pass
+
+
+
+
+
+
+
+class ApiUser(ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer

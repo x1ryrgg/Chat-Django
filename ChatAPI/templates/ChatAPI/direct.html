@@ -10,7 +10,7 @@
 </head>
 <body>
     <div id="chat-window">
-        {% include 'ChatAPI/messages.html' %}
+        {% include 'ChatAPI/direct_messages.html' %}
     </div>
 
     <form method="post" hx-post="{% url 'direct' user_id=user_id %}" hx-target="#chat-window" hx-swap="innerHTML">

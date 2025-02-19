@@ -10,6 +10,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 class ChatGroupSerializer(serializers.ModelSerializer):
     group_users = UserSerializer(many=True, read_only=True)
+
     class Meta:
         model = ChatGroup
         fields = ('group_name', 'group_users', 'pk')
@@ -47,3 +48,9 @@ class RegisterSerializer(serializers.ModelSerializer):
             password=validated_data['password']
         )
         return user
+
+
+class TestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TestImage
+        fields = ('id', 'image')
