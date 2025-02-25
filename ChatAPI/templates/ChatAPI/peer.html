@@ -45,16 +45,10 @@
             {% for user in users %}
                 <li>
                     {{ user.username }}
-                    {% if request.user in chat.group_admin_users.all and user != request.user %}
+                    {% if request.user == chat.creator  %}
                         <form method="post" action="{% url 'remove_user' chat.id user.id%}">
                             {% csrf_token %}
                             <button type="submit">Удалить пользователя</button>
-                        </form>
-                    {% endif %}
-                    {% if user not in chat.group_admin_users.all %}
-                        <form method="post" action='{% url 'add_admin' chat.id user.id %}'>
-                            {% csrf_token %}
-                            <button type="submit">Назначить админом </button>
                         </form>
                     {% endif %}
                 </li>

@@ -8,30 +8,21 @@ class UserSerializer(serializers.ModelSerializer):
         fields = ('id', 'username')
 
 
-class ChatGroupSerializer(serializers.ModelSerializer):
-    group_users = UserSerializer(many=True, read_only=True)
+class ChatSerializer(serializers.ModelSerializer):
+    members = UserSerializer(many=True, read_only=True)
 
     class Meta:
-        model = ChatGroup
-        fields = ('group_name', 'group_users', 'pk')
+        model = Chat
+        fields = ('id', 'type', 'group_name', 'members', 'created_at', )
 
 
-class GroupMessageSerializer(serializers.ModelSerializer):
+class MessageSerializer(serializers.ModelSerializer):
     sender = UserSerializer(read_only=True)
-    reply_to = serializers.PrimaryKeyRelatedField(queryset=GroupMessage.objects.all(), allow_null=True, required=False)
 
     class Meta:
-        model = GroupMessage
-        fields = ('id', 'group', 'sender', 'body', 'reply_to', 'date_sent')
+        model = Message
+        fields = ('id', 'chat', 'sender', 'body', 'created_at')
 
-
-class DirectMessageSerializer(serializers.ModelSerializer):
-    sender = UserSerializer(read_only=True)
-    receiver = UserSerializer(read_only=True)
-
-    class Meta:
-        model = DirectMessage
-        fields = ('sender', 'receiver', 'body', 'date_sent')
 
 
 # TEST JWT
@@ -50,7 +41,3 @@ class RegisterSerializer(serializers.ModelSerializer):
         return user
 
 
-class TestSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = TestImage
-        fields = ('id', 'image')

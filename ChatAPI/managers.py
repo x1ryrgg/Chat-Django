@@ -28,13 +28,20 @@ class UserManager(BaseUserManager):
         return user
 
 
-class ChatGroupManager(models.Manager):
+class ChatManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset()
 
-        def get_queryset(self):
-            return super().get_queryset()
+    def create(self, **kwargs):
+        obj = self.model(**kwargs)
+        obj.save()
+        logger.info('Created new groupchat "%s"' % obj.group_name)
+        return obj
 
-        def create(self, **kwargs):
-            obj = self.model(**kwargs)
-            obj.save()
-            logger.info('Created new groupchat "%s"' % obj.group_name)
-            return obj
+
+class MessageManager(models.Manager):
+    def create(self, **kwargs):
+        obj = self.model(**kwargs)
+        obj.save()
+        logger.info('Created new groupchat "%s"' % obj.group_name)
+        return obj

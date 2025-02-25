@@ -11,32 +11,7 @@
                         <button type="submit">удалить</button>
                     </form>
                 {% endif %}
-
-
-                <button onclick="replyToMessage({{ message.id }})">ответить</button>
-
-
-                {% if message.replies.exists %}
-                    <ul class="replies">
-                        {% for reply in message.replies.all %}
-                            <li class="reply">
-                                <strong>{{ reply.sender.username }}</strong>: {{ reply.body }} <em>({{ reply.date_sent }})</em>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                {% endif %}
-            </div>
-        </li>
     {% endfor %}
+    </div>
+    </li>
 </ul>
-
-<script>
-
-    function replyToMessage(messageId) {
-        var replyToInput = document.getElementById('id_reply_to');
-        if (replyToInput) {
-            replyToInput.value = messageId;
-            alert('ответить на сообщение с ID ' + messageId);
-        }
-    }
-</script>

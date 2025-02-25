@@ -5,7 +5,7 @@ from channels.generic.websocket import AsyncWebsocketConsumer
 from django.db import transaction
 
 from .models import User
-from .models import GroupMessage, ChatGroup
+
 
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):

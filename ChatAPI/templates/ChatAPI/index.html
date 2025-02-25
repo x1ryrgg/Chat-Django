@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{% static 'ChatAPI/css/chats.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="navbar">
+            <div class="brand">
+                <h2><a href="{% url 'fri_req:profile' user.id %}">{{ user.username }}</a></h2>
+            </div>
+            <div class="actions">
+                <a href="{% url 'fri_req:profile' user.id %}"> Профиль </a>
+                <a href="{% url 'fri_req:incoming_friend_requests'%}">Уведомления ({{ count_requests }})</a>
+                <a href="{% url 'fri_req:friends' %}">Друзья</a>
+                <a href="{% url 'fri_req:search_users' %}"> Найти друзей </a>
+                <a href="{% url 'create-chat' %}" class="chat-item">Создать групповой чат</a>
+                <a href="{% url 'logout' %}">Выйти из аккаунта</a>
+            </div>
+        </div>
+
+        {% for message in messages %}
+        <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+    {% endfor %}
+
+
+        <div class="chat-section">
+            <div class="chat-list">
+                <h2>Чаты</h2>
+                {% for i in chats %}
+                    <div class="chat-item">
+                        <a href="{% url 'chat' i.id %}">{{ i.group_name }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

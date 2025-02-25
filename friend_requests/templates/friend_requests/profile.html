@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль: {{ serializer.username }}</title>
+</head>
+<body>
+    <div>Профиль: {{ serializer.username }}</div>
+
+
+    <img src="{{ serializer.image.url }}" alt="Аватар">
+
+
+    {% if request.user.id == serializer.id %}
+    <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for f in form %}
+                <div>
+                <label for="{{ f.id_for_label }}">{{ f.label }}:</label>
+                {{ f }}
+
+                </div>
+            {% endfor %}
+            {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+            <p><button type="submit"> Сохранить изменения</button></p>
+        </form>
+    {% endif %}
+
+    {% if request.user.id != serializer.id %}
+        <div>Ник: {{ serializer.username }}</div>
+        <div>Почта: {{ serializer.email }}</div>
+        {% if serializer.first_name %}
+            <div>Имя: {{ serializer.first_name }} {% else %} Имя: не установлено.</div>
+        {% endif %}
+        <br>
+        {% if serializer.last_name %}
+            <div>Фамилия: {{ serializer.last_name }} {% else %} Фамилия: не установлено.</div>
+        {% endif %}
+        <br>
+        {% if serializer.date_birth %}
+            <div>Фамилия: {{ serializer.date_birth }} {% else %} Дата рождения: не установлено.</div>
+        {% endif %}
+    {% endif %}
+
+
+</body>
+</html>

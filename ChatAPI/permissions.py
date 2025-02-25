@@ -1,7 +1,6 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import permissions
-
-from ChatAPI.models import ChatGroup
+from ChatAPI.models import Chat
 
 
 class IsAdmin(permissions.BasePermission):
@@ -14,6 +13,6 @@ class IsAdmin(permissions.BasePermission):
         if not chat_id:
             return False
 
-        chat = get_object_or_404(ChatGroup, id=chat_id)
+        chat = get_object_or_404(Chat, id=chat_id)
 
-        return request.user in chat.group_admin_users.all()
+        return request.user != chat.creator

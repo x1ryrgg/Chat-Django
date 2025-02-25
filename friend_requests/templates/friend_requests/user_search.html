@@ -10,7 +10,7 @@
 <body>
 
          <h2>Поиск пользователя</h2>
-                <form method="get" action="{% url 'friend_requests:search_users' %}">
+                <form method="get" action="{% url 'fri_req:search_users' %}">
                     {% for f in filter.form %}
                         <p class="form-group">
                             <label class="form-control" for="{{ f.id_for_label }}">{{ f.label }}:</label>
@@ -32,11 +32,11 @@
     <h2>Пользователи</h2>
     {% for user_data in users %}
         <div class="user-item">
-            <div>{{ user_data.user.username }}</div>
+            <h1><a href="{% url 'fri_req:profile' user_data.user.id %}">{{ user_data.user.username }}</a></h1>
             {% if user_data.is_subscribed %}
                 <span>Заяка отправлена</span>
             {% else %}
-                <form method="post" action="{% url 'friend_requests:send_friend' user_data.user.id %}">
+                <form method="post" action="{% url 'fri_req:send_friend' user_data.user.id %}">
                     {% csrf_token %}
                     <button type="submit">Отправить заявку в друзья</button>
                 </form>

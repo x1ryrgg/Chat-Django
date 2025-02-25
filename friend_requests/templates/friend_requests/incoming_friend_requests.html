@@ -11,8 +11,8 @@
             {% for req in requests %}
                 <li>
                     {{ req.from_user.username }} хочет добавить вас в друзья.
-                    <a href="{% url 'friend_requests:handle_friend_request' req.id 'accept' %}">Принять</a> |
-                    <a href="{% url 'friend_requests:handle_friend_request' req.id 'decline' %}">Отклонить</a>
+                    <a href="{% url 'fri_req:handle_friend_request' req.id 'accept' %}">Принять</a> |
+                    <a href="{% url 'fri_req:handle_friend_request' req.id 'decline' %}">Отклонить</a>
                 </li>
             {% endfor %}
         </ul>
@@ -20,7 +20,7 @@
         <p>У вас нет входящих запросов на добавление в друзья.</p>
     {% endif %}
 
-    <form method="post" action="{% url 'friend_requests:send_hello' %}">
+    <form method="post" action="{% url 'fri_req:send_hello' %}">
         {% csrf_token %}
         <button type="submit">Отправить письмо</button>
     </form>
