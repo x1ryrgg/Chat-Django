@@ -35,7 +35,7 @@ class ChatManager(models.Manager):
     def create(self, **kwargs):
         obj = self.model(**kwargs)
         obj.save()
-        logger.info('Created new groupchat "%s"' % obj.group_name)
+        logger.info('Created new groupchat "%s"' % obj)
         return obj
 
 
@@ -43,5 +43,5 @@ class MessageManager(models.Manager):
     def create(self, **kwargs):
         obj = self.model(**kwargs)
         obj.save()
-        logger.info('Created new groupchat "%s"' % obj.group_name)
+        logger.info('Created new groupchat "%s"' % obj)
         return obj

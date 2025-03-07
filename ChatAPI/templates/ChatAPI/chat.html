@@ -1,0 +1,53 @@
+{% load custom_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'ChatAPI/css/groupchat.css' %}">
+    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+    <title>{{ title }}</title>
+
+</head>
+<body>
+    <h1><a href='{% url 'peer' chat.id %}'>{{ chat.group_name }}</a></h1>
+    <div id="chat-window">
+        {% include 'ChatAPI/messages.html' %}
+    </div>
+
+   <form id="chat-form">
+        <input type="text" id="message-input" placeholder="Введите сообщение..." maxlength="500">
+        <button type="submit">Отправить</button>
+    </form>
+
+    <script>
+        const chatId = {{ chat_id }};
+        const wsUrl = `ws://${window.location.host}/ws/chat/${chatId}/`;
+        const chatSocket = new WebSocket(wsUrl);
+
+        chatSocket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            const messageElement = document.createElement('div');
+            messageElement.innerHTML = `
+                <strong>${data.sender}</strong>
+                <small>${new Date(data.timestamp).toLocaleTimeString()}</small>
+                <p>${data.message}</p>
+            `;
+            document.getElementById('chat-window').appendChild(messageElement);
+        };
+
+        document.getElementById('chat-form').onsubmit = function(e) {
+            e.preventDefault();
+            const messageInput = document.getElementById('message-input');
+            const message = messageInput.value;
+
+            chatSocket.send(JSON.stringify({
+                'message': message
+            }));
+
+            messageInput.value = '';
+        };
+    </script>
+
+</body>
+</html>

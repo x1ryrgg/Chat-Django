@@ -5,8 +5,6 @@ from rest_framework import routers
 from . import consumers
 from .views import *
 
-router = routers.DefaultRouter()
-router.register(r'', ApiUser, basename='users')
 
 urlpatterns = [
     path('', index, name='index'),
@@ -31,9 +29,6 @@ urlpatterns = [
     # path('chat/<int:chat_id>/peer/add_admin/<int:user_id>/', AddGroupAdmin.as_view(), name='add_admin'),
 
 
-
-
-
     # test
-    path('api/', include(router.urls)),
+    path('test/', websocketest),
 ]

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'daphne',
     'django.contrib.staticfiles',
 
     'ChatAPI',
@@ -158,12 +159,21 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# CHANNEL_LAYERS = {
+#         'default': {
+#             'BACKEND': 'channels.layers.InMemoryChannelLayer',  # Для разработки
+#             # Для продакшн среды можете использовать Redis
+#         }
+#     }
+
 CHANNEL_LAYERS = {
-        'default': {
-            'BACKEND': 'channels.layers.InMemoryChannelLayer',  # Для разработки
-            # Для продакшн среды можете использовать Redis
-        }
-    }
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('localhost', 6379)],
+        },
+    },
+}
 
 LOGGING = {
     'version': 1,
@@ -214,8 +224,8 @@ CACHES = {
 }
 
 
-CELERY_BROKER_URL = 'redis://redis:6379/0' # для docker меняем на redis
-CELERY_RESULT_BACKEND = 'redis://redis:6379/0' # too
+CELERY_BROKER_URL = 'redis://localhost:6379/0' # для docker меняем на redis
+CELERY_RESULT_BACKEND = 'redis://localhost:6379/0' # too
 CELERY_BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TASK_SERIALIZER = 'json'

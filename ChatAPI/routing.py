@@ -1,8 +1,11 @@
-from django.urls import path
+from django.urls import path, re_path
+from twisted.test.test_ftp import TestConsumer
 
 from . import consumers
-from .consumers import ChatConsumer
+from .consumers import ChatConsumer, TestConsumer
 
 websocket_urlpatterns = [
-    path('ws/chat/<int:chat_id>/', ChatConsumer.as_asgi()),
+    re_path(r'ws/chat/(?P<chat_id>\d+)/$', consumers.ChatConsumer.as_asgi()),
+
+    path('ws/test/', TestConsumer.as_asgi()),
 ]

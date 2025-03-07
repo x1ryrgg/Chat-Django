@@ -1,9 +1,0 @@
-<ul id="direct-messages">
-    {% for message in serializer %}
-        <li class="{% if message.sender.id == request.user.id %}user-message{% else %}other-message{% endif %}">
-            <div>
-                <strong>{{ message.sender.username }}</strong>: {{ message.body }} <em>({{ message.date_sent }})</em>
-    {% endfor %}
-    </div>
-    </li>
-</ul>

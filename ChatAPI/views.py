@@ -103,7 +103,7 @@ class SignupView(APIView):
 
 
 class LogoutView(APIView):
-    permission_classes = [IsAuthenticated, ]
+    permission_classes = [IsAuthenticated]
     @staticmethod
     def get(request):
         if not request.user.is_anonymous:
@@ -118,15 +118,20 @@ class ChatsView(APIView):
     def get(request):
         user = request.user
 
-        chats = Chat.objects.filter(members=user).prefetch_related('members')
+        chats_data_key = f'chatgroup_data_{user.username}'
+        chats_data = cache.get(chats_data_key)
+        if not chats_data:
+            chats_query = Chat.objects.filter(members=user).prefetch_related('members')
+            chats_data = ChatSerializer(chats_query,many=True).data
+            cache.set(chats_data_key, chats_data, 60)
 
-        count_requests = FriendRequest.objects .filter(to_user=user) .count()
+        count_requests = FriendRequest.objects.filter(to_user=user).count()
 
         context = {
             'user': UserSerializer(user).data,
-            'chats': ChatSerializer(chats, many=True).data,
+            'chats': chats_data,
             'count_requests': count_requests,
-
+            'title': 'Чаты',
         }
 
         return render(request, 'chatAPI/index.html', context)
@@ -148,7 +153,7 @@ class DirectChat(APIView):
 
 
 class GroupChatCreateView(APIView):
-    permission_classes = [IsAuthenticated, ]
+    permission_classes = [IsAuthenticated]
     @staticmethod
     def get(request):
         form = CreateChatForm()
@@ -176,53 +181,24 @@ class GroupChatCreateView(APIView):
 
 
 class ChatView(APIView):
-    permission_classes = [IsAuthenticated, ]
-    @staticmethod
-    def get_context(chat_id):
-        chat = get_object_or_404(Chat, id=chat_id)
-
-        query = Message.objects.filter(chat__id=chat_id).select_related('chat', 'sender')
-        serializer = MessageSerializer(query, many=True)
-        form = MessageForm()
-        return {
-            'chat': chat,
-            'serializer': serializer.data,
-            'form': form,
-            'title': chat.group_name,
-        }
+    permission_classes = [IsAuthenticated]
 
     @staticmethod
     def get(request, chat_id):
-        context = ChatView.get_context(chat_id)
+        chat = get_object_or_404(Chat, id=chat_id)
 
-        if request.user not in context['chat'].members.all():
-            messages.error(request, 'Вы не являетесь участником чата.')
-            return redirect(reverse_lazy('chats'))
+        messages = Message.objects.filter(chat=chat).select_related('chat', 'sender')
 
-        context['chat_id'] = chat_id
-        return render(request, 'chatAPI/groupchat.html', context)
-
-    @staticmethod
-    def post(request, chat_id):
-        form = MessageForm(data=request.POST)
-
-        if form.is_valid():
-            message = form.save(commit=False)
-            message.sender = request.user
-            message.chat = get_object_or_404(Chat, id=chat_id)
-            message.save()
-
-            context = ChatView.get_context(chat_id)
-            return render(request, 'ChatAPI/messages.html', context)
-
-        messages.error(request, _("Ошибка при отправке сообщения."))
-        context = ChatView.get_context(chat_id)
-        context['form'] = form
-        return render(request, 'chatAPI/groupchat.html', context)
+        return render(request, 'chatAPI/chat.html', context={
+            'chat': chat,
+            'serializer': MessageSerializer(messages, many=True).data,
+            'title': chat.group_name,
+            'chat_id': chat_id
+        })
 
 
 class PeerGroupChatView(APIView):
-    permission_classes = [IsAuthenticated, ]
+    permission_classes = [IsAuthenticated]
     @staticmethod
     def get(request, chat_id):
         chat = get_object_or_404(Chat.objects.select_related('creator'), id=chat_id)
@@ -234,7 +210,7 @@ class PeerGroupChatView(APIView):
 
 
 class AddGroupUser(APIView):
-    permission_classes = [IsAuthenticated, ]
+    permission_classes = [IsAuthenticated]
     @staticmethod
     def get(request, chat_id):
         chat = get_object_or_404(Chat.objects.select_related('creator'), pk=chat_id)
@@ -312,7 +288,7 @@ class DeleteMessage(APIView):
 
 
 class LeaveGroupChat(APIView):
-    permission_classes = [IsAuthenticated, ]
+    permission_classes = [IsAuthenticated]
     @staticmethod
     def post(request, chat_id):
         chat = get_object_or_404(Chat, pk=chat_id)
@@ -325,7 +301,7 @@ class LeaveGroupChat(APIView):
 
 
 class DeleteGroupChat(APIView):
-    permission_classes = [IsAuthenticated, ]
+    permission_classes = [IsAuthenticated]
 
     @staticmethod
     def post(request, chat_id):
@@ -338,6 +314,5 @@ class DeleteGroupChat(APIView):
         return redirect(reverse_lazy('peer', kwargs={'chat_id': chat_id}))
 
 
-class ApiUser(ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+def websocketest(request):
+    return render(request, 'ChatAPI/websocket.html', context={"text": 'Hello World!'})
