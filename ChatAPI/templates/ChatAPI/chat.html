@@ -21,6 +21,7 @@
     </form>
 
     <script>
+        const currentUserId = "{{ user.id }}";
         const chatId = {{ chat_id }};
         const wsUrl = `ws://${window.location.host}/ws/chat/${chatId}/`;
         const chatSocket = new WebSocket(wsUrl);
@@ -37,16 +38,29 @@
         };
 
         document.getElementById('chat-form').onsubmit = function(e) {
-            e.preventDefault();
-            const messageInput = document.getElementById('message-input');
-            const message = messageInput.value;
+    e.preventDefault();
+    const messageInput = document.getElementById('message-input');
+    const message = messageInput.value.trim();
 
-            chatSocket.send(JSON.stringify({
-                'message': message
-            }));
+    if (!message) return;
 
-            messageInput.value = '';
-        };
+    // Мгновенно отображаем свое сообщение
+    const messageElement = document.createElement('div');
+    messageElement.className = 'message-right';
+    messageElement.innerHTML = `
+        <strong>Вы</strong>
+        <small>${new Date().toLocaleTimeString()}</small>
+        <p>${message}</p>
+    `;
+    document.getElementById('chat-window').appendChild(messageElement);
+
+    chatSocket.send(JSON.stringify({
+        'message': message
+    }));
+
+    messageInput.value = '';
+    messageInput.focus();
+};
     </script>
 
 </body>

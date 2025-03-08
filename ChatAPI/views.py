@@ -187,13 +187,16 @@ class ChatView(APIView):
     def get(request, chat_id):
         chat = get_object_or_404(Chat, id=chat_id)
 
+        user = request.user
+
         messages = Message.objects.filter(chat=chat).select_related('chat', 'sender')
 
         return render(request, 'chatAPI/chat.html', context={
             'chat': chat,
             'serializer': MessageSerializer(messages, many=True).data,
             'title': chat.group_name,
-            'chat_id': chat_id
+            'chat_id': chat_id,
+            'user': UserSerializer(user).data,
         })
 
 

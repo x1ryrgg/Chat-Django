@@ -108,3 +108,19 @@ a, button {
 a:hover, button:hover {
     background-color: #45a049;
 }
+
+.message-left {
+    text-align: left;
+    margin: 10px 20px;
+    padding: 8px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+}
+
+.message-right {
+    text-align: right;
+    margin: 10px 20px;
+    padding: 8px;
+    background-color: #d1e7dd;
+    border-radius: 8px;
+}

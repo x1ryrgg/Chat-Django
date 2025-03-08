@@ -17,7 +17,7 @@ class User(AbstractUser):
     image = models.ImageField(blank=True, null=True, upload_to='photo')
     friends = models.ManyToManyField('self', blank=True)
     email = models.EmailField(null=False, unique=True)
-    objects = UserManager()
+
 
     def __str__(self):
         return f"User: {self.username}"

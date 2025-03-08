@@ -51,10 +51,4 @@ class UserGroupForm(forms.ModelForm): #для добавления пользо�
         fields = ('members', )
 
 
-# class MessageForm(forms.ModelForm):
-#     body = forms.CharField(widget=forms.TextInput(), label_suffix='')
-#
-#     class Meta:
-#         model = Message
-#         fields = ('body', )
 
