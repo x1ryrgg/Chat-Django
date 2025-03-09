@@ -4,7 +4,6 @@
             <div>
                 <strong>{{ message.sender.username }}</strong>: {{ message.body }} <em>({{ message.date_sent }})</em>
 
-
                 {% if message.sender.id == request.user.id %}
                     <form method="post" action="{% url 'delete_message' message.id %}" style="display: inline;">
                         {% csrf_token %}
