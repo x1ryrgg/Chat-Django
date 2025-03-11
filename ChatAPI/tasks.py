@@ -28,12 +28,6 @@ def send_beat_message():
     )
 
 
-@app.task
-def add(x, y):
-    z = x + y
-    return z
-
-
 @app.task(bind=True, default_retry_delay=5 * 60, max_retries=3)
 def add_retry(self, x, y):
     try:

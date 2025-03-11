@@ -15,4 +15,18 @@ class FriendRequest(models.Model):
         return f'{self.from_user} -> {self.to_user}'
 
 
+class Notification(models.Model):
+    class Type(models.TextChoices):
+        MESSAGE = ('message', 'сообщение')
+        REQUEST = ('request', 'запрос')
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notification')
+    type = models.TextField(max_length=7, choices=Type.choices)
+    content = models.TextField(max_length=100)
+    is_read = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.user.username} -> {self.type} -> {self.content[:50]}"
+
 

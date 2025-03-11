@@ -18,9 +18,11 @@ class User(AbstractUser):
     friends = models.ManyToManyField('self', blank=True)
     email = models.EmailField(null=False, unique=True)
 
-
+    class Meta:
+        verbose_name = 'Пользователь'
+        verbose_name_plural = 'Пользователи'
     def __str__(self):
-        return f"User: {self.username}"
+        return f"User: {self.username}| pk: {self.pk}"
 
 
 class Chat(models.Model):
@@ -35,12 +37,8 @@ class Chat(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     objects = ChatManager()
 
-    class Meta:
-        verbose_name = 'Чат'
-        verbose_name_plural = 'Чаты'
-
     def __str__(self):
-        return f'Name: {self.group_name}, pk: {self.pk}, type: {self.type}'
+        return f'Name: {self.group_name} | pk: {self.pk} | type: {self.type}'
 
 
 class Message(models.Model):
@@ -51,8 +49,6 @@ class Message(models.Model):
     objects = MessageManager()
 
     class Meta:
-        verbose_name = 'Сообщение'
-        verbose_name_plural = 'Сообщения'
         ordering = ['created_at']
 
     def __str__(self):

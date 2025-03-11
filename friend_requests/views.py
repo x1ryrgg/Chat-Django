@@ -9,7 +9,7 @@ from django.utils.translation import gettext_lazy as _
 from django.urls import reverse_lazy
 from rest_framework.response import Response
 
-from ChatAPI.tasks import send_message, add
+from ChatAPI.tasks import send_message
 from Chat_Django import settings
 from Chat_Django.settings import DEFAULT_FROM_EMAIL
 from .forms import ProfileForm

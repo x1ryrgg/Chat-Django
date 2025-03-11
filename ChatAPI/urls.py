@@ -1,7 +1,7 @@
 
 from django.urls import path, re_path, include
 from rest_framework import routers
-
+from django.contrib.auth import views as auth_views
 from . import consumers
 from .views import *
 
@@ -12,6 +12,13 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
     path('signup/', SignupView.as_view(), name='signup'),
     path('logout/', LogoutView.as_view(), name='logout'),
+    path('password-reset/', ResetPasswordView.as_view(), name='password-reset'),
+    path('password-reset-confirm/<uidb64>/<token>/',
+             auth_views.PasswordResetConfirmView.as_view(template_name='ChatAPI/password_reset/password_reset_confirm.html'),
+             name='password_reset_confirm'),
+    path('password-reset-complete/',
+             auth_views.PasswordResetCompleteView.as_view(template_name='ChatAPI/password_reset/password_reset_complete.html'),
+             name='password_reset_complete'),
 
     path('chats/', ChatsView.as_view(), name='chats'),
 
@@ -27,7 +34,6 @@ urlpatterns = [
     path('chat/<int:chat_id>/peer/add_user/', AddGroupUser.as_view(), name='add_user'),
     path('chat/<int:chat_id>/peer/remove_user/<int:user_id>/', RemoveGroupUser.as_view(), name='remove_user'),
     # path('chat/<int:chat_id>/peer/add_admin/<int:user_id>/', AddGroupAdmin.as_view(), name='add_admin'),
-
 
     # test
     path('test/', websocketest),
