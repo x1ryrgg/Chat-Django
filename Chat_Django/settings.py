@@ -23,7 +23,7 @@ load_dotenv()
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('DEBUG', 'False').lower() in ['true', 'yes', '1']
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,8 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'daphne',
+    'daphne', # для работы протокола websocket
     'django.contrib.staticfiles',
+    'constance',
 
     'ChatAPI',
     'friend_requests',
@@ -211,7 +212,7 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',
         'CONFIG': {
-            "hosts": [('redis', 6379)], # для docker использовать ('redis', 6379)
+            "hosts": [('localhost', 6379)], # для docker использовать ('redis', 6379)
         },
     },
 }
@@ -237,3 +238,28 @@ celery -A Chat_Django worker -l info -P eventlet - команда для инф�
 #celery -A Chat_Django flower --port=5555
 
 # redis-cli flushall - очистка кеша
+
+
+""" CONSTANCE (dinamic settings)"""
+
+CONSTANCE_BACKEND = 'constance.backends.database.DatabaseBackend'
+
+AVAILABLE_OPTIONS = [
+    ('choice1', "da"),
+    ('choice2', "net"),
+    ('choice3', "idi naxui"),
+    ('choice4', "pisya popa"),
+]
+
+CONSTANCE_ADDITIONAL_OPTIONS = {
+    'my_multiselect': ['django.forms.fields.MultipleChoiceField', {
+        'widget': 'django.forms.SelectMultiple',
+        'choices': AVAILABLE_OPTIONS
+    }]
+}
+
+CONSTANCE_CONFIG = {
+    'THE_ANSWER': (42, 'Answer to the Ultimate Question of Life', int),
+    'BARYA': ('vsem privet', 'Ya poedy? Net, idi naxui', str),
+    # 'CUSTOM_VARIANTS': (['choice1', 'choice2'], 'Custom variants', tuple, 'my_multiselect')
+}

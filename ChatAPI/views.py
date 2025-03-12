@@ -1,6 +1,7 @@
 import logging
 import json
 
+from constance import config
 from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.views import PasswordResetView
 from django.contrib.messages.views import SuccessMessageMixin
@@ -11,12 +12,13 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.template.loader import render_to_string
 from django.urls import reverse_lazy
 from django.views.generic import ListView
+from rest_framework.decorators import action
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.viewsets import ModelViewSet, ViewSet
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework_simplejwt.views import TokenObtainPairView
 from .tasks import *
@@ -332,3 +334,21 @@ class DeleteGroupChat(APIView):
 
 def websocketest(request):
     return render(request, 'ChatAPI/websocket.html', context={"text": 'Hello World!'})
+
+
+class Constance(ModelViewSet):
+    permission_classes = [IsAuthenticated]
+    http_method_names = ['get']
+    queryset = Message.objects.all().select_related('sender')
+    serializer_class = MessageSerializer
+
+    @action(
+        detail=False,
+        methods=['get'],
+        url_path='constance'
+    )
+    def get_constance(self, request, *args, **kwargs):
+        return Response(data={
+            'answer': config.THE_ANSWER,
+            'barya': config.BARYA
+        })

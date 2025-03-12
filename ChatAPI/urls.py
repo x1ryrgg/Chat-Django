@@ -5,6 +5,9 @@ from django.contrib.auth import views as auth_views
 from . import consumers
 from .views import *
 
+router = routers.DefaultRouter()
+router.register(r'', Constance, basename='constance')
+
 
 urlpatterns = [
     path('', index, name='index'),
@@ -37,4 +40,5 @@ urlpatterns = [
 
     # test
     path('test/', websocketest),
+    path('api/constance/', include(router.urls))
 ]
